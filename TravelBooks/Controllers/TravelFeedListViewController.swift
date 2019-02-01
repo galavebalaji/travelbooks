@@ -1,9 +1,9 @@
 //
-//  TravelBookListViewController.swift
+//  TravelFeedListViewController.swift
 
 import UIKit
 
-class TravelBookListViewController: BaseViewController {
+class TravelFeedListViewController: BaseViewController {
     
     @IBOutlet private weak var collectionViewTravelBook: UICollectionView! {
         didSet {
@@ -36,20 +36,18 @@ class TravelBookListViewController: BaseViewController {
     }
     
     private func setupSearchButton() {
-        let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "search_icon"), style: .plain, target: nil, action: nil)
-        self.navigationItem.leftBarButtonItem = backButton
-        backButton.isAccessibilityElement = true
+        let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "search_icon"), style: .plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = searchButton
     }
     
     private func setupSettingsButton() {
-        let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "gear-purple"), style: .plain, target: nil, action: nil)
-        self.navigationItem.rightBarButtonItem = backButton
-        backButton.isAccessibilityElement = true
+        let settingsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "gear-purple"), style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = settingsButton
     }
     
 }
 
-extension TravelBookListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension TravelFeedListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 0
