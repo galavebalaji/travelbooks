@@ -5,7 +5,7 @@ import Foundation
 
 public enum Result<Value> {
     case success(Value)
-    case failure(NSError)
+    case failure(Error)
     
     /// Returns `true` if the result is a success, `false` otherwise.
     public var isSuccess: Bool {

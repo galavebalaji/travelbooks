@@ -14,10 +14,15 @@ class TravelFeedListViewController: BaseViewController {
         }
     }
     
+    var presenter: TravelFeedListPresenterInput?
+    var configurator: TravelFeedListConfigurator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupNavigationBar()
+        configurator?.configure(travelFeedListViewController: self)
+        presenter?.fetchFeedList()
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,5 +61,9 @@ extension TravelFeedListViewController: UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return UICollectionViewCell()
     }
+    
+}
+
+extension TravelFeedListViewController: TravelFeedListPresenterOutput {
     
 }

@@ -11,7 +11,7 @@ struct TravelFeedModel {
 }
 
 struct UserInformation {
-    let id: Int?
+    let id: String?
     let userFirstName: String?
     let userLastName: String?
     let urlUserAvatar: String?

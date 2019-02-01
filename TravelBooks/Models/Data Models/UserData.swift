@@ -5,7 +5,7 @@ import Foundation
 
 struct UserData: Codable {
     
-    let id: Int?
+    let id: String?
     let type: String?
     
     enum CodingKeys: String, CodingKey {
@@ -16,7 +16,7 @@ struct UserData: Codable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
+        id = try values.decodeIfPresent(String.self, forKey: .id)
         type = try values.decodeIfPresent(String.self, forKey: .type)
     }
     

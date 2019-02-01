@@ -17,7 +17,7 @@ class BaseService: SessionDelegate {
         requestManager = SessionManager(configuration: configuration, delegate: self, serverTrustPolicyManager: nil)
     }
     
-    private func getRequest<T: Decodable>(type model: T,
+    final func getRequest<T: Decodable>(type model: T.Type,
                                           url: URL,
                                           parameters: [String: Any]?,
                                           headers: [String: String]? = nil,
@@ -43,7 +43,9 @@ class BaseService: SessionDelegate {
                         
                         let jsonDecoder = JSONDecoder()
                         let responseModel = try jsonDecoder.decode(T.self, from: data)
+                        
                         completion(responseModel, responseJson.result.value, responseJson.result.error, data)
+                        
                     }catch let error {
                         Logger.log(message: error.localizedDescription, messageType: .error)
                         completion(nil, error as NSError, nil, nil)

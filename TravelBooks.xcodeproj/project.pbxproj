@@ -50,6 +50,8 @@
 		F12705C42204C0D8002C27D7 /* FeedAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705C32204C0D8002C27D7 /* FeedAttributes.swift */; };
 		F12705C62204C243002C27D7 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705C52204C243002C27D7 /* DateUtils.swift */; };
 		F12705C92204C6A5002C27D7 /* TravelFeedListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705C82204C6A5002C27D7 /* TravelFeedListConfigurator.swift */; };
+		F12705CB2204D6E7002C27D7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CA2204D6E7002C27D7 /* String+Extension.swift */; };
+		F12705CD2204D960002C27D7 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CC2204D960002C27D7 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +130,8 @@
 		F12705C32204C0D8002C27D7 /* FeedAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAttributes.swift; sourceTree = "<group>"; };
 		F12705C52204C243002C27D7 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		F12705C82204C6A5002C27D7 /* TravelFeedListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedListConfigurator.swift; sourceTree = "<group>"; };
+		F12705CA2204D6E7002C27D7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		F12705CC2204D960002C27D7 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +269,8 @@
 			children = (
 				F127058A22041D1F002C27D7 /* UIFont+Extension.swift */,
 				F127058C22042DB2002C27D7 /* UIColor+Extension.swift */,
+				F12705CA2204D6E7002C27D7 /* String+Extension.swift */,
+				F12705CC2204D960002C27D7 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -753,6 +759,7 @@
 				F12705BB22049070002C27D7 /* FetchFeedListRepository.swift in Sources */,
 				F12705B722049000002C27D7 /* TravelFeedListPresenter.swift in Sources */,
 				F127058922041A30002C27D7 /* ViewUtility.swift in Sources */,
+				F12705CD2204D960002C27D7 /* Date+Extension.swift in Sources */,
 				F12705A622046D61002C27D7 /* Included.swift in Sources */,
 				F12705A422046D61002C27D7 /* Attributes.swift in Sources */,
 				F12705C92204C6A5002C27D7 /* TravelFeedListConfigurator.swift in Sources */,
@@ -768,6 +775,7 @@
 				F12705832204184C002C27D7 /* Constant.swift in Sources */,
 				F12705C62204C243002C27D7 /* DateUtils.swift in Sources */,
 				F127059F22046D61002C27D7 /* DataResponse.swift in Sources */,
+				F12705CB2204D6E7002C27D7 /* String+Extension.swift in Sources */,
 				F12705AA22047440002C27D7 /* TravelFeedModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,7 +2,7 @@
 import Foundation
 
 struct Included: Codable {
-	let id: Int?
+	let id: String?
 	let type: String?
 	let attributes: Attributes?
 
@@ -15,7 +15,7 @@ struct Included: Codable {
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		id = try values.decodeIfPresent(Int.self, forKey: .id)
+		id = try values.decodeIfPresent(String.self, forKey: .id)
 		type = try values.decodeIfPresent(String.self, forKey: .type)
 		attributes = try values.decodeIfPresent(Attributes.self, forKey: .attributes)
 	}

@@ -10,5 +10,10 @@ enum FeedFilterType {
 
 struct TravelFeedRequest {
     let feedFilterType: FeedFilterType
-    let page: Int = 1
+    var page: Int = 1
+    
+    init(feedFilterType: FeedFilterType, page: Int) {
+        self.feedFilterType = feedFilterType
+        self.page = page
+    }
 }
