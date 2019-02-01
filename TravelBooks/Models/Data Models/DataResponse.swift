@@ -1,10 +1,10 @@
 
 import Foundation
 
-struct Data: Codable {
+struct DataResponse: Codable {
 	let id: Int?
 	let type: String?
-	let attributes: Attributes?
+	let attributes: FeedAttributes?
 	let relationships: Relationships?
 
 	enum CodingKeys: String, CodingKey {
@@ -19,7 +19,7 @@ struct Data: Codable {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		id = try values.decodeIfPresent(Int.self, forKey: .id)
 		type = try values.decodeIfPresent(String.self, forKey: .type)
-		attributes = try values.decodeIfPresent(Attributes.self, forKey: .attributes)
+		attributes = try values.decodeIfPresent(FeedAttributes.self, forKey: .attributes)
 		relationships = try values.decodeIfPresent(Relationships.self, forKey: .relationships)
 	}
 

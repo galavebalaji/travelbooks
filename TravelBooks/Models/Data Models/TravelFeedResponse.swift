@@ -1,9 +1,9 @@
 
 import Foundation
 
-struct TravelBooksResponse: Codable {
+struct TravelFeedResponse: Codable {
     
-	let data: [Data]?
+	let data: [DataResponse]?
 	let included: [Included]?
 	let links: Links?
 
@@ -16,7 +16,7 @@ struct TravelBooksResponse: Codable {
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		data = try values.decodeIfPresent([Data].self, forKey: .data)
+		data = try values.decodeIfPresent([DataResponse].self, forKey: .data)
 		included = try values.decodeIfPresent([Included].self, forKey: .included)
 		links = try values.decodeIfPresent(Links.self, forKey: .links)
 	}
