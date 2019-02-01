@@ -23,6 +23,7 @@
 		F127057F2204059B002C27D7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F127057222040512002C27D7 /* Montserrat-Regular.ttf */; };
 		F12705802204059B002C27D7 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F127057822040512002C27D7 /* Montserrat-SemiBold.otf */; };
 		F12705812204059B002C27D7 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = F127057522040512002C27D7 /* Montserrat-UltraLight.otf */; };
+		F12705832204184C002C27D7 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705822204184C002C27D7 /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		F127057722040512002C27D7 /* Montserrat-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Hairline.otf"; sourceTree = "<group>"; };
 		F127057822040512002C27D7 /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
 		F127057922040512002C27D7 /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
+		F12705822204184C002C27D7 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 		2112D349205F721D00288FD9 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				F12705822204184C002C27D7 /* Constant.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				21281249206B5C18003BB865 /* ViewController.swift in Sources */,
 				2112D30D205F70A200288FD9 /* AppDelegate.swift in Sources */,
 				F127057022032C60002C27D7 /* BaseViewController.swift in Sources */,
+				F12705832204184C002C27D7 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
