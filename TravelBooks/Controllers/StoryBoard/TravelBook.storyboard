@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Travel Book List View Controller-->
+        <!--Travel Feed List View Controller-->
         <scene sceneID="ptb-vB-eqg">
             <objects>
-                <viewController storyboardIdentifier="TravelBookListViewControllerId" id="h6i-do-9s7" customClass="TravelBookListViewController" customModule="TravelBooks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TravelFeedListViewControllerId" id="h6i-do-9s7" customClass="TravelFeedListViewController" customModule="TravelBooks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9dQ-HQ-iAh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

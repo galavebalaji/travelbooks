@@ -13,8 +13,8 @@ struct ViewUtility {
     }
     
     // MARK: ViewController Utility Methods
-    static func getTravelBookListViewController() -> TravelBookListViewController? {
-        return getTravelBookStoryBaord().instantiateViewController(withIdentifier: "TravelBookListViewControllerId") as? TravelBookListViewController
+    static func getTravelFeedListViewController() -> TravelFeedListViewController? {
+        return getTravelBookStoryBaord().instantiateViewController(withIdentifier: "TravelFeedListViewControllerId") as? TravelFeedListViewController
     }
     
 }
