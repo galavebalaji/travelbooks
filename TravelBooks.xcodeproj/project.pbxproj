@@ -223,6 +223,8 @@
 		2128123E206B5C18003BB865 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F127058F22043EE6002C27D7 /* UI Models */,
+				F127058E22043EDA002C27D7 /* Data Models */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -306,6 +308,20 @@
 				F127058822041A30002C27D7 /* ViewUtility.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		F127058E22043EDA002C27D7 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		F127058F22043EE6002C27D7 /* UI Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "UI Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

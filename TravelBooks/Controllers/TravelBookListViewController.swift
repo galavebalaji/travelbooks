@@ -5,6 +5,15 @@ import UIKit
 
 class TravelBookListViewController: BaseViewController {
     
+    @IBOutlet private weak var collectionViewTravelBook: UICollectionView! {
+        didSet {
+            collectionViewTravelBook.clipsToBounds = true
+            collectionViewTravelBook.isScrollEnabled = true
+            collectionViewTravelBook.dataSource = self
+            collectionViewTravelBook.delegate = self
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -36,6 +45,18 @@ class TravelBookListViewController: BaseViewController {
         let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "gear-purple"), style: .plain, target: nil, action: nil)
         self.navigationItem.rightBarButtonItem = backButton
         backButton.isAccessibilityElement = true
+    }
+    
+}
+
+extension TravelBookListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
     }
     
 }
