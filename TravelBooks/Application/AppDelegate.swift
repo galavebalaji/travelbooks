@@ -17,11 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if window == nil {
             window = UIWindow(frame: UIScreen.main.bounds)
         }
-        let viewController = ViewController()
-        viewController.view.backgroundColor = .white
-        window?.rootViewController = viewController
-        window?.makeKeyAndVisible()
+        if let travelBookViewController = ViewUtility.getTravelBookListViewController() {
+            let navigationController = UINavigationController(rootViewController: travelBookViewController)
+            window?.rootViewController = navigationController
+            travelBookViewController.view.backgroundColor = .blue
+        }
         
+        window?.makeKeyAndVisible()
         return true
     }
     
