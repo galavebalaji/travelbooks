@@ -15,6 +15,14 @@
 		5D64C24591A87E1FC97C5A5D /* Pods_TravelBooksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57626D01B019415982C65715 /* Pods_TravelBooksUITests.framework */; };
 		B0F4A0622043A18054118295 /* Pods_TravelBooksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0977C0903D95D29792E955F /* Pods_TravelBooksTests.framework */; };
 		F127057022032C60002C27D7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127056F22032C60002C27D7 /* BaseViewController.swift */; };
+		F127057A2204059B002C27D7 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F127057922040512002C27D7 /* Montserrat-Black.otf */; };
+		F127057B2204059B002C27D7 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F127057422040512002C27D7 /* Montserrat-Bold.ttf */; };
+		F127057C2204059B002C27D7 /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F127057322040512002C27D7 /* Montserrat-ExtraBold.otf */; };
+		F127057D2204059B002C27D7 /* Montserrat-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = F127057722040512002C27D7 /* Montserrat-Hairline.otf */; };
+		F127057E2204059B002C27D7 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F127057622040512002C27D7 /* Montserrat-Light.otf */; };
+		F127057F2204059B002C27D7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F127057222040512002C27D7 /* Montserrat-Regular.ttf */; };
+		F12705802204059B002C27D7 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F127057822040512002C27D7 /* Montserrat-SemiBold.otf */; };
+		F12705812204059B002C27D7 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = F127057522040512002C27D7 /* Montserrat-UltraLight.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +66,14 @@
 		E0977C0903D95D29792E955F /* Pods_TravelBooksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelBooksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E881D71339B9D8191BFCBA25 /* Pods-TravelBooksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelBooksUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelBooksUITests/Pods-TravelBooksUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F127056F22032C60002C27D7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F127057222040512002C27D7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		F127057322040512002C27D7 /* Montserrat-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.otf"; sourceTree = "<group>"; };
+		F127057422040512002C27D7 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		F127057522040512002C27D7 /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
+		F127057622040512002C27D7 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
+		F127057722040512002C27D7 /* Montserrat-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Hairline.otf"; sourceTree = "<group>"; };
+		F127057822040512002C27D7 /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
+		F127057922040512002C27D7 /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +179,7 @@
 		2112D348205F721800288FD9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F127057122040503002C27D7 /* Fonts */,
 				2112D313205F70A200288FD9 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -243,6 +260,21 @@
 				57626D01B019415982C65715 /* Pods_TravelBooksUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F127057122040503002C27D7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F127057922040512002C27D7 /* Montserrat-Black.otf */,
+				F127057422040512002C27D7 /* Montserrat-Bold.ttf */,
+				F127057322040512002C27D7 /* Montserrat-ExtraBold.otf */,
+				F127057722040512002C27D7 /* Montserrat-Hairline.otf */,
+				F127057622040512002C27D7 /* Montserrat-Light.otf */,
+				F127057222040512002C27D7 /* Montserrat-Regular.ttf */,
+				F127057822040512002C27D7 /* Montserrat-SemiBold.otf */,
+				F127057522040512002C27D7 /* Montserrat-UltraLight.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,7 +391,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F127057F2204059B002C27D7 /* Montserrat-Regular.ttf in Resources */,
+				F127057D2204059B002C27D7 /* Montserrat-Hairline.otf in Resources */,
+				F127057C2204059B002C27D7 /* Montserrat-ExtraBold.otf in Resources */,
+				F12705802204059B002C27D7 /* Montserrat-SemiBold.otf in Resources */,
+				F12705812204059B002C27D7 /* Montserrat-UltraLight.otf in Resources */,
+				F127057B2204059B002C27D7 /* Montserrat-Bold.ttf in Resources */,
 				2112D317205F70A200288FD9 /* LaunchScreen.storyboard in Resources */,
+				F127057A2204059B002C27D7 /* Montserrat-Black.otf in Resources */,
+				F127057E2204059B002C27D7 /* Montserrat-Light.otf in Resources */,
 				2112D314205F70A200288FD9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
