@@ -19,10 +19,32 @@ class TravelFeedListViewController: BaseViewController {
         }
     }
     
+    @IBOutlet private weak var labelSortBy: UILabel!
+    @IBOutlet private weak var stackViewOfButtons: UIStackView!
+    
+    @IBOutlet private weak var buttonTravelBooks: UIButton! {
+        didSet {
+            buttonTravelBooks.isEnabled = false
+        }
+    }
+    
+    @IBOutlet private weak var buttonFriends: CustomButton! {
+        didSet {
+            buttonFriends.changeStyle(isSelected: true)
+        }
+    }
+    
+    @IBOutlet private weak var buttonCommunity: CustomButton! {
+        didSet {
+            buttonCommunity.changeStyle(isSelected: false)
+        }
+    }
+    
     var presenter: TravelFeedListPresenterInput?
     var configurator: TravelFeedListConfigurator?
+    private var selectedButtonType: FeedFilterType = .friends
     
-    fileprivate var heightForRow: [IndexPath: CGFloat] = [:]
+    private var heightForRow: [IndexPath: CGFloat] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +77,43 @@ class TravelFeedListViewController: BaseViewController {
     private func setupSettingsButton() {
         let settingsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "gear-purple"), style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = settingsButton
+    }
+    
+    // MARK: Actions Methods
+    @IBAction private func buttonTravelBooksTapped(_ sender: UIButton) {
+        hideStackViewElements(shouldHide: false)
+    }
+    
+    @IBAction private func buttonFriendsTapped(_ sender: CustomButton) {
+        selectedButtonType = .friends
+        hideStackViewElements(shouldHide: true)
+    }
+    
+    @IBAction private func buttonCommunityTapped(_ sender: CustomButton) {
+        selectedButtonType = .community
+        hideStackViewElements(shouldHide: true)
+    }
+    
+    private func hideStackViewElements(shouldHide: Bool) {
+        UIView.animate(withDuration: 0.25) {
+            self.labelSortBy.isHidden = shouldHide
+            self.stackViewOfButtons.isHidden = shouldHide
+            self.buttonTravelBooks.isEnabled = shouldHide
+        }
+        tappedButton(with: selectedButtonType)
+    }
+    
+    private func tappedButton(with type: FeedFilterType) {
+        
+        switch type {
+        case .friends:
+            buttonFriends.changeStyle(isSelected: true)
+            buttonCommunity.changeStyle(isSelected: false)
+        case .community:
+            buttonFriends.changeStyle(isSelected: false)
+            buttonCommunity.changeStyle(isSelected: true)
+        }
+        
     }
     
 }

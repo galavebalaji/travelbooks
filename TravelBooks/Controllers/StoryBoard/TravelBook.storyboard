@@ -9,6 +9,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Travel Feed List View Controller-->
         <scene sceneID="ptb-vB-eqg">
@@ -18,31 +26,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EcT-mU-2Uv">
-                                <rect key="frame" x="0.0" y="20" width="375" height="128"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="efb-Sl-LKK"/>
-                                </constraints>
-                            </view>
+                            <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGA-Gz-zzl">
+                                <rect key="frame" x="24" y="16" width="137" height="39"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="22"/>
+                                <state key="normal" title="TravelBooks">
+                                    <color key="titleColor" red="0.2196078431372549" green="0.24313725490196078" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTravelBooksTapped:" destination="h6i-do-9s7" eventType="touchUpInside" id="r0a-eb-Tch"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zgY-7f-NMN">
+                                <rect key="frame" x="24" y="71" width="327" height="89"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TsT-vb-6QB">
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="21"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="center" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="lYI-yR-yho">
+                                        <rect key="frame" x="0.0" y="37" width="317" height="52"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLQ-24-VfY" userLabel="friends" customClass="CustomButton" customModule="TravelBooks" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="52"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                                <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
+                                                <state key="normal" title="Friends"/>
+                                                <connections>
+                                                    <action selector="buttonFriendsTapped:" destination="h6i-do-9s7" eventType="touchUpInside" id="5Rb-L9-Egy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZX-Wx-V7p" userLabel="Community" customClass="CustomButton" customModule="TravelBooks" customModuleProvider="target">
+                                                <rect key="frame" x="189" y="0.0" width="128" height="52"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                                <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
+                                                <state key="normal" title="Community"/>
+                                                <connections>
+                                                    <action selector="buttonCommunityTapped:" destination="h6i-do-9s7" eventType="touchUpInside" id="Pfs-Es-IeH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="evD-pM-7xR">
-                                <rect key="frame" x="0.0" y="148" width="375" height="519"/>
+                                <rect key="frame" x="0.0" y="184" width="375" height="483"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ukB-gA-YQn" firstAttribute="bottom" secondItem="evD-pM-7xR" secondAttribute="bottom" id="JZG-Lu-cNa"/>
-                            <constraint firstItem="evD-pM-7xR" firstAttribute="top" secondItem="EcT-mU-2Uv" secondAttribute="bottom" id="M5M-ez-3NS"/>
-                            <constraint firstItem="ukB-gA-YQn" firstAttribute="trailing" secondItem="evD-pM-7xR" secondAttribute="trailing" id="RDS-eQ-xIp"/>
-                            <constraint firstItem="EcT-mU-2Uv" firstAttribute="leading" secondItem="ukB-gA-YQn" secondAttribute="leading" id="fNt-mM-Beo"/>
-                            <constraint firstItem="evD-pM-7xR" firstAttribute="leading" secondItem="ukB-gA-YQn" secondAttribute="leading" id="i7Z-4F-EIY"/>
-                            <constraint firstItem="EcT-mU-2Uv" firstAttribute="top" secondItem="ukB-gA-YQn" secondAttribute="top" id="i86-iU-6JD"/>
-                            <constraint firstItem="ukB-gA-YQn" firstAttribute="trailing" secondItem="EcT-mU-2Uv" secondAttribute="trailing" id="tUh-XV-Ski"/>
+                            <constraint firstItem="evD-pM-7xR" firstAttribute="top" secondItem="zgY-7f-NMN" secondAttribute="bottom" constant="24" id="CrO-AB-d2p"/>
+                            <constraint firstItem="NGA-Gz-zzl" firstAttribute="leading" secondItem="ukB-gA-YQn" secondAttribute="leading" constant="24" id="Fp8-a3-u6r"/>
+                            <constraint firstItem="ukB-gA-YQn" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NGA-Gz-zzl" secondAttribute="trailing" constant="16" id="I35-4G-jGF"/>
+                            <constraint firstItem="evD-pM-7xR" firstAttribute="bottom" secondItem="ukB-gA-YQn" secondAttribute="bottom" id="Nw7-5h-Sow"/>
+                            <constraint firstItem="zgY-7f-NMN" firstAttribute="top" secondItem="NGA-Gz-zzl" secondAttribute="bottom" constant="16" id="ccP-jb-dDs"/>
+                            <constraint firstItem="NGA-Gz-zzl" firstAttribute="top" secondItem="9dQ-HQ-iAh" secondAttribute="top" constant="16" id="cqA-18-67y"/>
+                            <constraint firstItem="evD-pM-7xR" firstAttribute="leading" secondItem="ukB-gA-YQn" secondAttribute="leading" id="euA-hh-sBF"/>
+                            <constraint firstItem="evD-pM-7xR" firstAttribute="trailing" secondItem="ukB-gA-YQn" secondAttribute="trailing" id="gFc-1b-pMD"/>
+                            <constraint firstItem="ukB-gA-YQn" firstAttribute="trailing" secondItem="zgY-7f-NMN" secondAttribute="trailing" constant="24" id="jGg-rN-wdD"/>
+                            <constraint firstItem="zgY-7f-NMN" firstAttribute="leading" secondItem="NGA-Gz-zzl" secondAttribute="leading" id="vhv-Hp-dL0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ukB-gA-YQn"/>
                     </view>
                     <connections>
+                        <outlet property="buttonCommunity" destination="pZX-Wx-V7p" id="TLm-Na-kVm"/>
+                        <outlet property="buttonFriends" destination="gLQ-24-VfY" id="SNp-tu-S3S"/>
+                        <outlet property="buttonTravelBooks" destination="NGA-Gz-zzl" id="yy5-4J-dDB"/>
+                        <outlet property="labelSortBy" destination="TsT-vb-6QB" id="4bf-pj-ahw"/>
+                        <outlet property="stackViewOfButtons" destination="lYI-yR-yho" id="2Wd-IN-yeD"/>
                         <outlet property="tableViewTravelFeed" destination="evD-pM-7xR" id="Bz6-vP-33E"/>
                     </connections>
                 </viewController>

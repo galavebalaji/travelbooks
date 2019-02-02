@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             travelFeedViewController.configurator = TravelFeedListConfiguratorImpl()
             let navigationController = UINavigationController(rootViewController: travelFeedViewController)
             window?.rootViewController = navigationController
-            travelFeedViewController.view.backgroundColor = .blue
         }
         
         window?.makeKeyAndVisible()
