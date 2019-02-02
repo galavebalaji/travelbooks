@@ -15,3 +15,11 @@ struct APIUrlsConstant {
     }
     
 }
+
+struct Constant {
+    struct TravelFeedListConstants {
+        static let travelFeedTableCellId = "TravelFeedTableViewCellId"
+        static let travelFeedTableCellName = "TravelFeedTableViewCell"
+    }
+}
+

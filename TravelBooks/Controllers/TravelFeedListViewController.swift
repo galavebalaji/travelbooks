@@ -5,17 +5,22 @@ import UIKit
 
 class TravelFeedListViewController: BaseViewController {
     
-    @IBOutlet private weak var collectionViewTravelBook: UICollectionView! {
+    @IBOutlet private weak var tableViewTravelFeed: UITableView! {
         didSet {
-            collectionViewTravelBook.clipsToBounds = true
-            collectionViewTravelBook.isScrollEnabled = true
-            collectionViewTravelBook.dataSource = self
-            collectionViewTravelBook.delegate = self
+            tableViewTravelFeed.delegate = self
+            tableViewTravelFeed.dataSource = self
+            tableViewTravelFeed.separatorStyle = .none
+            tableViewTravelFeed.rowHeight = UITableViewAutomaticDimension
+            let nib = UINib(nibName: Constant.TravelFeedListConstants.travelFeedTableCellName, bundle: nil)
+            tableViewTravelFeed.register(nib,
+                                         forCellReuseIdentifier: Constant.TravelFeedListConstants.travelFeedTableCellId)
         }
     }
     
     var presenter: TravelFeedListPresenterInput?
     var configurator: TravelFeedListConfigurator?
+    
+    fileprivate var heightForRow: [IndexPath: CGFloat] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,18 +57,40 @@ class TravelFeedListViewController: BaseViewController {
     
 }
 
-extension TravelFeedListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter?.numberOfRows(for: section) ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellId = Constant.TravelFeedListConstants.travelFeedTableCellId
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? TravelFeedTableViewCell,
+            let model = presenter?.travelModel(for: indexPath.section) else {
+            return UITableViewCell()
+        }
+        
+        cell.configureCell(with: model)
+        cell.indexPath =  indexPath
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
     
 }
 
 extension TravelFeedListViewController: TravelFeedListPresenterOutput {
+    func reloadData() {
+        tableViewTravelFeed.reloadData()
+    }
+}
+
+extension TravelFeedListViewController: TravelFeedTableViewCellDelegate {
+    
+    func reloadRow(at indexPath: IndexPath) {
+        tableViewTravelFeed.reloadRows(at: [indexPath], with: .fade)
+    }
     
 }

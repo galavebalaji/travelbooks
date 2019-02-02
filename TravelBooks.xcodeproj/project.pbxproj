@@ -52,6 +52,9 @@
 		F12705C92204C6A5002C27D7 /* TravelFeedListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705C82204C6A5002C27D7 /* TravelFeedListConfigurator.swift */; };
 		F12705CB2204D6E7002C27D7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CA2204D6E7002C27D7 /* String+Extension.swift */; };
 		F12705CD2204D960002C27D7 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CC2204D960002C27D7 /* Date+Extension.swift */; };
+		F12705D0220528A1002C27D7 /* TravelFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CE220528A1002C27D7 /* TravelFeedTableViewCell.swift */; };
+		F12705D1220528A1002C27D7 /* TravelFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */; };
+		F12705D422052E1A002C27D7 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705D322052E1A002C27D7 /* CustomImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +135,9 @@
 		F12705C82204C6A5002C27D7 /* TravelFeedListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedListConfigurator.swift; sourceTree = "<group>"; };
 		F12705CA2204D6E7002C27D7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		F12705CC2204D960002C27D7 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		F12705CE220528A1002C27D7 /* TravelFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedTableViewCell.swift; sourceTree = "<group>"; };
+		F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravelFeedTableViewCell.xib; sourceTree = "<group>"; };
+		F12705D322052E1A002C27D7 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,7 +265,8 @@
 		2128123A206B5C18003BB865 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F12705AD2204772C002C27D7 /* Travel Book */,
+				F12705D222052DDB002C27D7 /* Common */,
+				F12705AD2204772C002C27D7 /* Travel Feed List */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -396,11 +403,13 @@
 			path = "Data Models";
 			sourceTree = "<group>";
 		};
-		F12705AD2204772C002C27D7 /* Travel Book */ = {
+		F12705AD2204772C002C27D7 /* Travel Feed List */ = {
 			isa = PBXGroup;
 			children = (
+				F12705CE220528A1002C27D7 /* TravelFeedTableViewCell.swift */,
+				F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */,
 			);
-			path = "Travel Book";
+			path = "Travel Feed List";
 			sourceTree = "<group>";
 		};
 		F12705B222048F50002C27D7 /* Presenter */ = {
@@ -442,6 +451,14 @@
 				F12705C82204C6A5002C27D7 /* TravelFeedListConfigurator.swift */,
 			);
 			path = Configurator;
+			sourceTree = "<group>";
+		};
+		F12705D222052DDB002C27D7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F12705D322052E1A002C27D7 /* CustomImageView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -563,6 +580,7 @@
 				F127057C2204059B002C27D7 /* Montserrat-ExtraBold.otf in Resources */,
 				F12705802204059B002C27D7 /* Montserrat-SemiBold.otf in Resources */,
 				F12705812204059B002C27D7 /* Montserrat-UltraLight.otf in Resources */,
+				F12705D1220528A1002C27D7 /* TravelFeedTableViewCell.xib in Resources */,
 				F127057B2204059B002C27D7 /* Montserrat-Bold.ttf in Resources */,
 				2112D317205F70A200288FD9 /* LaunchScreen.storyboard in Resources */,
 				F127057A2204059B002C27D7 /* Montserrat-Black.otf in Resources */,
@@ -762,6 +780,7 @@
 				F12705CD2204D960002C27D7 /* Date+Extension.swift in Sources */,
 				F12705A622046D61002C27D7 /* Included.swift in Sources */,
 				F12705A422046D61002C27D7 /* Attributes.swift in Sources */,
+				F12705D422052E1A002C27D7 /* CustomImageView.swift in Sources */,
 				F12705C92204C6A5002C27D7 /* TravelFeedListConfigurator.swift in Sources */,
 				2112D30D205F70A200288FD9 /* AppDelegate.swift in Sources */,
 				F12705A322046D61002C27D7 /* User.swift in Sources */,
@@ -775,6 +794,7 @@
 				F12705832204184C002C27D7 /* Constant.swift in Sources */,
 				F12705C62204C243002C27D7 /* DateUtils.swift in Sources */,
 				F127059F22046D61002C27D7 /* DataResponse.swift in Sources */,
+				F12705D0220528A1002C27D7 /* TravelFeedTableViewCell.swift in Sources */,
 				F12705CB2204D6E7002C27D7 /* String+Extension.swift in Sources */,
 				F12705AA22047440002C27D7 /* TravelFeedModel.swift in Sources */,
 			);
