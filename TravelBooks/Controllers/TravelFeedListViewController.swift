@@ -51,7 +51,7 @@ class TravelFeedListViewController: BaseViewController {
         // Do any additional setup after loading the view, typically from a nib.
         setupNavigationBar()
         configurator?.configure(travelFeedListViewController: self)
-        presenter?.fetchFeedList()
+        presenter?.fetchFeedList(for: selectedButtonType)
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,13 +85,17 @@ class TravelFeedListViewController: BaseViewController {
     }
     
     @IBAction private func buttonFriendsTapped(_ sender: CustomButton) {
-        selectedButtonType = .friends
         hideStackViewElements(shouldHide: true)
+        if selectedButtonType == .friends { return }
+        selectedButtonType = .friends
+        tappedButton(with: selectedButtonType)
     }
     
     @IBAction private func buttonCommunityTapped(_ sender: CustomButton) {
-        selectedButtonType = .community
         hideStackViewElements(shouldHide: true)
+        if selectedButtonType == .community { return }
+        selectedButtonType = .community
+        tappedButton(with: selectedButtonType)
     }
     
     private func hideStackViewElements(shouldHide: Bool) {
@@ -100,7 +104,7 @@ class TravelFeedListViewController: BaseViewController {
             self.stackViewOfButtons.isHidden = shouldHide
             self.buttonTravelBooks.isEnabled = shouldHide
         }
-        tappedButton(with: selectedButtonType)
+        
     }
     
     private func tappedButton(with type: FeedFilterType) {
@@ -113,7 +117,7 @@ class TravelFeedListViewController: BaseViewController {
             buttonFriends.changeStyle(isSelected: false)
             buttonCommunity.changeStyle(isSelected: true)
         }
-        
+        presenter?.fetchFeedList(for: selectedButtonType)
     }
     
 }
