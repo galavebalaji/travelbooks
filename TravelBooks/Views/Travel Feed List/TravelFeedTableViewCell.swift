@@ -16,11 +16,6 @@ class TravelFeedTableViewCell: UITableViewCell {
             viewBackground.layer.cornerRadius = 10
             viewBackground.layer.borderColor = UIColor.travelFeedCellBorder().cgColor
             viewBackground.clipsToBounds = true
-//            viewBackground.backgroundColor = .white
-//            viewBackground.layer.shadowColor = UIColor.black.cgColor
-//            viewBackground.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-//            viewBackground.layer.shadowOpacity = 0.2
-//            viewBackground.layer.shadowRadius = 4.0
         }
     }
     

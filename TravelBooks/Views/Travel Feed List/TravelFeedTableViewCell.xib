@@ -49,7 +49,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fFo-sg-3mA" customClass="CustomImageView" customModule="TravelBooks" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholer" translatesAutoresizingMaskIntoConstraints="NO" id="fFo-sg-3mA" customClass="CustomImageView" customModule="TravelBooks" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="58" width="353" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="iGX-4V-jEI"/>
@@ -95,4 +95,7 @@
             <point key="canvasLocation" x="189.59999999999999" y="89.055472263868069"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="placeholer" width="512" height="512"/>
+    </resources>
 </document>
