@@ -10,6 +10,7 @@ class TravelFeedListViewController: BaseViewController {
             tableViewTravelFeed.delegate = self
             tableViewTravelFeed.dataSource = self
             tableViewTravelFeed.separatorStyle = .none
+            tableViewTravelFeed.backgroundColor = UIColor.travelFeedTableViewBackground()
             tableViewTravelFeed.rowHeight = UITableViewAutomaticDimension
             let nib = UINib(nibName: Constant.TravelFeedListConstants.travelFeedTableCellName, bundle: nil)
             tableViewTravelFeed.register(nib,
@@ -38,9 +39,9 @@ class TravelFeedListViewController: BaseViewController {
     private func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.tintColor = UIColor.navigationTintColor()
+        navigationController?.navigationBar.tintColor = UIColor.navigationTint()
         navigationController?.navigationBar.barStyle = .default
-        navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor()
+        navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackground()
         setupSearchButton()
         setupSettingsButton()
     }
@@ -65,13 +66,14 @@ extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId = Constant.TravelFeedListConstants.travelFeedTableCellId
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? TravelFeedTableViewCell,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId,
+                                                       for: indexPath) as? TravelFeedTableViewCell,
             let model = presenter?.travelModel(for: indexPath.section) else {
             return UITableViewCell()
         }
         
         cell.configureCell(with: model)
-        cell.indexPath =  indexPath
+        cell.indexPath = indexPath
         return cell
     }
     

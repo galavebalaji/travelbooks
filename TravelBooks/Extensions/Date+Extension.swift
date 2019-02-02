@@ -18,4 +18,16 @@ extension Date {
         return current
     }
     
+    var getYYYY: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        return dateFormatter.string(from: self)
+    }
+    
+    var getMMM: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM"
+        return dateFormatter.string(from: self)
+    }
+    
 }
