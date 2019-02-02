@@ -12,6 +12,7 @@ class TravelFeedListViewController: BaseViewController {
             tableViewTravelFeed.separatorStyle = .none
             tableViewTravelFeed.backgroundColor = UIColor.travelFeedTableViewBackground()
             tableViewTravelFeed.rowHeight = UITableViewAutomaticDimension
+            tableViewTravelFeed.estimatedRowHeight = 247
             let nib = UINib(nibName: Constant.TravelFeedListConstants.travelFeedTableCellName, bundle: nil)
             tableViewTravelFeed.register(nib,
                                          forCellReuseIdentifier: Constant.TravelFeedListConstants.travelFeedTableCellId)
@@ -71,9 +72,9 @@ extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSour
             let model = presenter?.travelModel(for: indexPath.section) else {
             return UITableViewCell()
         }
-        
-        cell.configureCell(with: model)
         cell.indexPath = indexPath
+        cell.delegate = self
+        cell.configureCell(with: model)
         return cell
     }
     
@@ -91,8 +92,17 @@ extension TravelFeedListViewController: TravelFeedListPresenterOutput {
 
 extension TravelFeedListViewController: TravelFeedTableViewCellDelegate {
     
-    func reloadRow(at indexPath: IndexPath) {
-        tableViewTravelFeed.reloadRows(at: [indexPath], with: .fade)
+    func reloadRow(at indexPath: IndexPath, height: CGFloat) {
+        if heightForRow[indexPath] == nil {
+            heightForRow[indexPath] = height
+            DispatchQueue.main.async {
+                self.tableViewTravelFeed.beginUpdates()
+                self.tableViewTravelFeed.reloadRows(
+                    at: [indexPath],
+                    with: .fade)
+                self.tableViewTravelFeed.endUpdates()
+            }
+        }
     }
     
 }

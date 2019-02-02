@@ -16,7 +16,11 @@ class CustomImageView: UIImageView {
         self.image = nil
         
         if let cachedImage = imageCache[urlString] {
-            self.image = cachedImage
+            if completionHandlar != nil {
+                completionHandlar?(cachedImage)
+            } else {
+                self.image = cachedImage
+            }
             return
         }
         
@@ -41,11 +45,10 @@ class CustomImageView: UIImageView {
             DispatchQueue.main.async {
                 if completionHandlar != nil {
                     completionHandlar?(photoImage)
-                }else {
+                } else {
                     self.image = photoImage
                 }
             }
-            
-            }.resume()
+        }.resume()
     }
 }

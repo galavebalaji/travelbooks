@@ -5,7 +5,7 @@
 import UIKit
 
 protocol TravelFeedTableViewCellDelegate: AnyObject {
-    func reloadRow(at indexPath: IndexPath)
+    func reloadRow(at indexPath: IndexPath, height: CGFloat)
 }
 
 class TravelFeedTableViewCell: UITableViewCell {
@@ -33,6 +33,7 @@ class TravelFeedTableViewCell: UITableViewCell {
     @IBOutlet private weak var labelDate: UILabel!
     @IBOutlet private weak var imageViewCoverImage: CustomImageView!
     @IBOutlet private weak var constraintCoverImageHeight: NSLayoutConstraint!
+    @IBOutlet private weak var constraintCoverImageTop: NSLayoutConstraint!
     
     weak var delegate: TravelFeedTableViewCellDelegate?
     var indexPath: IndexPath?
@@ -81,15 +82,16 @@ class TravelFeedTableViewCell: UITableViewCell {
             labelDate.text = "\(date.getMMM.uppercased())\n\(date.getYYYY)"
         }
     }
-    
+    // Reload only first 4 rows to set the height correctly, for later indexes we dont need to reload.
+    private let indexes = [0, 1, 2, 3]
     private func loadedCoverImage(with image: UIImage) {
         
         let calculateHeight = (imageViewCoverImage.frame.width * image.size.height) / image.size.width
         constraintCoverImageHeight.constant = calculateHeight
         imageViewCoverImage.image = image
-        
-        if let indexPath = self.indexPath {
-            delegate?.reloadRow(at: indexPath)
+        Logger.log(message: "Height for the row \(indexPath?.row) is = \(calculateHeight + constraintCoverImageTop.constant)", messageType: .debug)
+        if let indexPath = self.indexPath, indexes.contains(indexPath.row) {
+            delegate?.reloadRow(at: indexPath, height: calculateHeight + constraintCoverImageTop.constant)
         }
     }
     
