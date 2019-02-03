@@ -56,6 +56,7 @@
 		F12705D1220528A1002C27D7 /* TravelFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */; };
 		F12705D422052E1A002C27D7 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705D322052E1A002C27D7 /* CustomImageView.swift */; };
 		F1F8F20D2205BB58000F1DB4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */; };
+		F1F8F21A220697EE000F1DB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1F8F21C220697EE000F1DB4 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,10 @@
 		F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravelFeedTableViewCell.xib; sourceTree = "<group>"; };
 		F12705D322052E1A002C27D7 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		F1F8F218220697A8000F1DB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F1F8F219220697E1000F1DB4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F1F8F21B220697EE000F1DB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F1F8F21D220697F1000F1DB4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +257,7 @@
 			children = (
 				F127057122040503002C27D7 /* Fonts */,
 				2112D313205F70A200288FD9 /* Assets.xcassets */,
+				F1F8F21C220697EE000F1DB4 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -558,8 +564,8 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				ja,
 			);
 			mainGroup = 2112D300205F70A200288FD9;
 			productRefGroup = 2112D30A205F70A200288FD9 /* Products */;
@@ -587,6 +593,7 @@
 				F127057B2204059B002C27D7 /* Montserrat-Bold.ttf in Resources */,
 				2112D317205F70A200288FD9 /* LaunchScreen.storyboard in Resources */,
 				F127057A2204059B002C27D7 /* Montserrat-Black.otf in Resources */,
+				F1F8F21A220697EE000F1DB4 /* Localizable.strings in Resources */,
 				F1270586220419F1002C27D7 /* TravelBook.storyboard in Resources */,
 				F127057E2204059B002C27D7 /* Montserrat-Light.otf in Resources */,
 				2112D314205F70A200288FD9 /* Assets.xcassets in Resources */,
@@ -838,8 +845,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				2112D316205F70A200288FD9 /* Base */,
+				F1F8F218220697A8000F1DB4 /* en */,
+				F1F8F219220697E1000F1DB4 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F1F8F21C220697EE000F1DB4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1F8F21B220697EE000F1DB4 /* en */,
+				F1F8F21D220697F1000F1DB4 /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -850,6 +868,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -910,6 +929,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1081,6 +1101,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

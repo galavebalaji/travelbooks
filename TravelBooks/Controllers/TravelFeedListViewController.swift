@@ -31,14 +31,24 @@ class TravelFeedListViewController: BaseViewController {
     @IBOutlet private weak var buttonFriends: CustomButton! {
         didSet {
             buttonFriends.changeStyle(isSelected: true)
+            buttonFriends.setTitle("BUTTON_TITLE_FRIENDS".localized, for: .normal)
         }
     }
     
     @IBOutlet private weak var buttonCommunity: CustomButton! {
         didSet {
             buttonCommunity.changeStyle(isSelected: false)
+            buttonCommunity.setTitle("BUTTON_TITLE_COMMUNITY".localized, for: .normal)
         }
     }
+    
+    @IBOutlet private weak var imageViewArrow: UIImageView! {
+        didSet {
+            self.imageViewArrow.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+        }
+    }
+    
+    @IBOutlet private weak var constraintTableViewTop: NSLayoutConstraint!
     
     var presenter: TravelFeedListPresenterInput?
     var configurator: TravelFeedListConfigurator?
@@ -103,8 +113,11 @@ class TravelFeedListViewController: BaseViewController {
             self.labelSortBy.isHidden = shouldHide
             self.stackViewOfButtons.isHidden = shouldHide
             self.buttonTravelBooks.isEnabled = shouldHide
+            self.constraintTableViewTop.constant = shouldHide ?
+                Constant.Dimension.iOSPOINTS0 : Constant.Dimension.iOSPOINTS20
+            let angle = shouldHide ? (-Double.pi / 2) : (Double.pi / 2)
+            self.imageViewArrow.transform = CGAffineTransform(rotationAngle: CGFloat(angle))
         }
-        
     }
     
     private func tappedButton(with type: FeedFilterType) {
@@ -133,7 +146,7 @@ extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSour
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId,
                                                        for: indexPath) as? TravelFeedTableViewCell,
             let model = presenter?.travelModel(for: indexPath.section) else {
-            return UITableViewCell()
+                return UITableViewCell()
         }
         cell.indexPath = indexPath
         cell.delegate = self
