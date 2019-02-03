@@ -28,7 +28,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67d-Tw-Kw7" userLabel="BackgroundView">
-                        <rect key="frame" x="16" y="11" width="353" height="218"/>
+                        <rect key="frame" x="16" y="11" width="353" height="280"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Nu-Lg-ci9" customClass="CustomImageView" customModule="TravelBooks" customModuleProvider="target">
                                 <rect key="frame" x="12" y="8" width="36" height="36"/>
@@ -50,13 +50,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholer" translatesAutoresizingMaskIntoConstraints="NO" id="fFo-sg-3mA" customClass="CustomImageView" customModule="TravelBooks" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="58" width="353" height="160"/>
+                                <rect key="frame" x="0.0" y="58" width="353" height="170"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="pql-TJ-JdB"/>
+                                    <constraint firstAttribute="height" priority="999" constant="160" id="pql-TJ-JdB"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxZ-ru-waD" userLabel="share button">
-                                <rect key="frame" x="317" y="234" width="20" height="20"/>
+                                <rect key="frame" x="317" y="244" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="O6w-c1-VJ2"/>
                                     <constraint firstAttribute="height" constant="20" id="dPx-5v-V1X"/>
@@ -64,7 +64,7 @@
                                 <state key="normal" image="share"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qy-fR-pMd" userLabel="like button">
-                                <rect key="frame" x="281" y="234" width="20" height="20"/>
+                                <rect key="frame" x="281" y="244" width="20" height="20"/>
                                 <state key="normal" image="like"/>
                             </button>
                         </subviews>
