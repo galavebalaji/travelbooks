@@ -207,4 +207,15 @@ extension TravelFeedListViewController: TravelFeedTableViewCellDelegate {
             self?.refreshControl.endRefreshing()
         }
     }
+    
+    func showLoader(shouldShow: Bool) {
+        guard !refreshControl.isRefreshing else { return }
+        DispatchQueue.main.async { [weak self] in
+            if shouldShow {
+                self?.showActivityIndicator()
+            } else {
+                self?.hideActivityIndicator()
+            }
+        }
+    }
 }
