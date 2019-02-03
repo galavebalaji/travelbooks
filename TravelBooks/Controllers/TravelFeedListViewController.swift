@@ -141,7 +141,8 @@ class TravelFeedListViewController: BaseViewController {
     }
     
     private func tappedButton(with type: FeedFilterType) {
-        
+        currentPage = 1
+        presenter.resetTravelFeedList()
         switch type {
         case .friends:
             buttonFriends.changeStyle(isSelected: true)
@@ -179,13 +180,6 @@ extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let nextIndexRow = indexPath.row + 1
-//        if let model = presenter.travelModel(for: nextIndexRow),
-//            let urlCoverImageString = model.urlCoverImage {
-//            let imageView = UIImageView()
-//            imageView.sd_setImage(with: URL(string: urlCoverImageString), completed: nil)
-//        }
-        
         if indexPath.row == presenter.numberOfFeeds - 2, presenter.hasMoreFeeds {
             currentPage += 1
             presenter.fetchFeedList(for: selectedButtonType, page: currentPage)
@@ -211,8 +205,12 @@ extension TravelFeedListViewController: UITableViewDataSourcePrefetching {
 }
 
 extension TravelFeedListViewController: TravelFeedListPresenterOutput {
+    
     func reloadData() {
         tableViewTravelFeed.reloadData()
+        if currentPage == 1, presenter.numberOfFeeds > 0 {
+            tableViewTravelFeed.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
     }
 }
 

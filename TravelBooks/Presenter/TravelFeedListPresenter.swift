@@ -10,6 +10,7 @@ protocol TravelFeedListPresenterInput {
     func fetchFeedList(for type: FeedFilterType, page: Int)
     func numberOfRows(for section: Int) -> Int
     func travelModel(for index: Int) -> TravelFeedModel?
+    func resetTravelFeedList()
 }
 
 protocol TravelFeedListPresenterOutput: AnyObject {
@@ -70,5 +71,9 @@ class TravelFeedListPresenter: TravelFeedListPresenterInput {
             return travelFeedList[index]
         }
         return nil
+    }
+    
+    func resetTravelFeedList() {
+        travelFeedList.removeAll()
     }
 }
