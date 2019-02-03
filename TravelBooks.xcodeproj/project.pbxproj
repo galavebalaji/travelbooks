@@ -201,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				2112D346205F720E00288FD9 /* Application */,
+				2128123A206B5C18003BB865 /* Views */,
 				21281240206B5C18003BB865 /* Controllers */,
 				F12705B222048F50002C27D7 /* Presenter */,
 				F12705C72204C679002C27D7 /* Configurator */,
@@ -210,7 +211,6 @@
 				2128123E206B5C18003BB865 /* Models */,
 				21281242206B5C18003BB865 /* Protocols */,
 				21281244206B5C18003BB865 /* Services */,
-				2128123A206B5C18003BB865 /* Views */,
 			);
 			path = TravelBooks;
 			sourceTree = "<group>";

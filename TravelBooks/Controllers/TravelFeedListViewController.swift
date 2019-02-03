@@ -16,6 +16,7 @@ class TravelFeedListViewController: BaseViewController {
             let nib = UINib(nibName: Constant.TravelFeedListConstants.travelFeedTableCellName, bundle: nil)
             tableViewTravelFeed.register(nib,
                                          forCellReuseIdentifier: Constant.TravelFeedListConstants.travelFeedTableCellId)
+            addRefreshControl()
         }
     }
     
@@ -50,6 +51,7 @@ class TravelFeedListViewController: BaseViewController {
     
     @IBOutlet private weak var constraintTableViewTop: NSLayoutConstraint!
     
+    private var refreshControl = UIRefreshControl()
     var presenter: TravelFeedListPresenterInput?
     var configurator: TravelFeedListConfigurator?
     private var selectedButtonType: FeedFilterType = .friends
@@ -87,6 +89,22 @@ class TravelFeedListViewController: BaseViewController {
     private func setupSettingsButton() {
         let settingsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "gear-purple"), style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = settingsButton
+    }
+    
+    private func addRefreshControl() {
+        refreshControl = UIRefreshControl()
+        if #available(iOS 10.0, *) {
+            tableViewTravelFeed.refreshControl = refreshControl
+        } else {
+            // Fallback on earlier versions
+            tableViewTravelFeed.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(pulledToRefresh), for: .valueChanged)
+    }
+    
+    @objc
+    private func pulledToRefresh() {
+        presenter?.fetchFeedList(for: selectedButtonType)
     }
     
     // MARK: Actions Methods
@@ -145,7 +163,7 @@ extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSour
         let cellId = Constant.TravelFeedListConstants.travelFeedTableCellId
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId,
                                                        for: indexPath) as? TravelFeedTableViewCell,
-            let model = presenter?.travelModel(for: indexPath.section) else {
+            let model = presenter?.travelModel(for: indexPath.row) else {
                 return UITableViewCell()
         }
         cell.indexPath = indexPath
@@ -171,14 +189,33 @@ extension TravelFeedListViewController: TravelFeedTableViewCellDelegate {
     func reloadRow(at indexPath: IndexPath, height: CGFloat) {
         if heightForRow[indexPath] == nil {
             heightForRow[indexPath] = height
-            DispatchQueue.main.async {
-                self.tableViewTravelFeed.beginUpdates()
-                self.tableViewTravelFeed.reloadRows(
+            DispatchQueue.main.async { [weak self] in
+                self?.tableViewTravelFeed.beginUpdates()
+                self?.tableViewTravelFeed.reloadRows(
                     at: [indexPath],
                     with: .fade)
-                self.tableViewTravelFeed.endUpdates()
+                self?.tableViewTravelFeed.endUpdates()
             }
         }
     }
     
+    func stopPullToRefreshIndicator() {
+        DispatchQueue.main.async { [weak self] in
+            guard self?.refreshControl.isRefreshing ?? false else {
+                return
+            }
+            self?.refreshControl.endRefreshing()
+        }
+    }
+    
+    func showLoader(shouldShow: Bool) {
+        guard !refreshControl.isRefreshing else { return }
+        DispatchQueue.main.async { [weak self] in
+            if shouldShow {
+                self?.showActivityIndicator()
+            } else {
+                self?.hideActivityIndicator()
+            }
+        }
+    }
 }

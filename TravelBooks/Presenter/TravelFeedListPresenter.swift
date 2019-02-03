@@ -12,6 +12,8 @@ protocol TravelFeedListPresenterInput {
 
 protocol TravelFeedListPresenterOutput: AnyObject {
     func reloadData()
+    func stopPullToRefreshIndicator()
+    func showLoader(shouldShow: Bool)
 }
 
 class TravelFeedListPresenter: TravelFeedListPresenterInput {
@@ -27,14 +29,17 @@ class TravelFeedListPresenter: TravelFeedListPresenterInput {
     }
     
     func fetchFeedList(for type: FeedFilterType) {
+        travelFeedListPresenterOutput?.showLoader(shouldShow: true)
         fetchTravelFeedUsecase.fetchFeed(with: TravelFeedRequest(feedFilterType: .community,
                                                                  page: 1)) { [weak self] result in
+            self?.travelFeedListPresenterOutput?.showLoader(shouldShow: false)
             switch result {
             case .success(let feeds):
                 Logger.log(message: "Feeds = \(feeds.count)", messageType: .debug)
                 self?.travelFeedList = feeds
                 
                 self?.travelFeedListPresenterOutput?.reloadData()
+                self?.travelFeedListPresenterOutput?.stopPullToRefreshIndicator()
                 
             case .failure(_):
                 break
