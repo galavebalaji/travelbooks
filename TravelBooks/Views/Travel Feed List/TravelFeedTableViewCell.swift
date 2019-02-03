@@ -20,7 +20,7 @@ class TravelFeedTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet private weak var imageViewUserAvatar: CustomImageView! {
+    @IBOutlet private weak var imageViewUserAvatar: UIImageView! {
         didSet {
             imageViewUserAvatar.roundedImage(imageViewUserAvatar.frame.width / 2, color: .clear)
         }
@@ -31,7 +31,7 @@ class TravelFeedTableViewCell: UITableViewCell {
         }
     }
     @IBOutlet private weak var labelDate: UILabel!
-    @IBOutlet private weak var imageViewCoverImage: CustomImageView!
+    @IBOutlet private weak var imageViewCoverImage: UIImageView!
     @IBOutlet private weak var constraintCoverImageHeight: NSLayoutConstraint!
     @IBOutlet private weak var constraintCoverImageTop: NSLayoutConstraint!
     
@@ -52,7 +52,7 @@ class TravelFeedTableViewCell: UITableViewCell {
     func configureCell(with model: TravelFeedModel) {
         
         if let urlUserAvatar = model.userInformation?.urlUserAvatar {
-            imageViewUserAvatar.loadImage(urlString: urlUserAvatar)
+            imageViewUserAvatar.sd_setImage(with: URL(string: urlUserAvatar), completed: nil)
         }
         
         if let urlCoverImageString = model.urlCoverImage, let urlCoverImage = URL(string: urlCoverImageString) {
