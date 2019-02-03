@@ -163,7 +163,7 @@ extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSour
         let cellId = Constant.TravelFeedListConstants.travelFeedTableCellId
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId,
                                                        for: indexPath) as? TravelFeedTableViewCell,
-            let model = presenter?.travelModel(for: indexPath.section) else {
+            let model = presenter?.travelModel(for: indexPath.row) else {
                 return UITableViewCell()
         }
         cell.indexPath = indexPath
