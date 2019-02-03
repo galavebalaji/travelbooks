@@ -13,6 +13,7 @@ target 'TravelBooks' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'SwiftLint'
+  pod 'SDWebImage', '~> 4.0'
 
   target 'TravelBooksTests' do
     inherit! :search_paths

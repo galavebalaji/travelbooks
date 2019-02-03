@@ -5,6 +5,9 @@ PODS:
   - Fabric (1.7.9)
   - Nimble (7.1.3)
   - Quick (1.3.1)
+  - SDWebImage (4.4.3):
+    - SDWebImage/Core (= 4.4.3)
+  - SDWebImage/Core (4.4.3)
   - SwiftLint (0.27.0)
 
 DEPENDENCIES:
@@ -13,6 +16,7 @@ DEPENDENCIES:
   - Fabric
   - Nimble
   - Quick
+  - SDWebImage (~> 4.0)
   - SwiftLint
 
 SPEC REPOS:
@@ -22,6 +26,7 @@ SPEC REPOS:
     - Fabric
     - Nimble
     - Quick
+    - SDWebImage
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -30,8 +35,9 @@ SPEC CHECKSUMS:
   Fabric: a2917d3895e4c1569b9c3170de7320ea1b1e6661
   Nimble: 2839b01d1b31f6a6a7777a221f0d91cf52e8e27b
   Quick: d17304d58d0d169dd0bd1c6e5c28e3318de32a1a
+  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: 3a1e3b64071a06a94d8210bdce98bf8e26ab6a9b
+PODFILE CHECKSUM: 569bbe3713e7357e8e1f654e4838951347c6a28c
 
 COCOAPODS: 1.5.3

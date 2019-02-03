@@ -3,6 +3,7 @@
 //  TravelBooks
 
 import UIKit
+import SDWebImage
 
 protocol TravelFeedTableViewCellDelegate: AnyObject {
     func reloadRow(at indexPath: IndexPath, height: CGFloat)
@@ -19,10 +20,9 @@ class TravelFeedTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet private weak var imageViewUserAvatar: CustomImageView! {
+    @IBOutlet private weak var imageViewUserAvatar: UIImageView! {
         didSet {
-            imageViewUserAvatar.layer.cornerRadius = imageViewUserAvatar.frame.width / 2
-            imageViewUserAvatar.clipsToBounds = true
+            imageViewUserAvatar.roundedImage(imageViewUserAvatar.frame.width / 2, color: .clear)
         }
     }
     @IBOutlet private weak var labelUserName: UILabel! {
@@ -31,7 +31,7 @@ class TravelFeedTableViewCell: UITableViewCell {
         }
     }
     @IBOutlet private weak var labelDate: UILabel!
-    @IBOutlet private weak var imageViewCoverImage: CustomImageView!
+    @IBOutlet private weak var imageViewCoverImage: UIImageView!
     @IBOutlet private weak var constraintCoverImageHeight: NSLayoutConstraint!
     @IBOutlet private weak var constraintCoverImageTop: NSLayoutConstraint!
     
@@ -52,13 +52,13 @@ class TravelFeedTableViewCell: UITableViewCell {
     func configureCell(with model: TravelFeedModel) {
         
         if let urlUserAvatar = model.userInformation?.urlUserAvatar {
-            imageViewUserAvatar.loadImage(urlString: urlUserAvatar)
+            imageViewUserAvatar.sd_setImage(with: URL(string: urlUserAvatar), completed: nil)
         }
         
-        if let urlCoverImage = model.urlCoverImage {
-            imageViewCoverImage.loadImage(urlString: urlCoverImage) { [weak self] image in
-                if let coverImage = image {
-                    self?.loadedCoverImage(with: coverImage)
+        if let urlCoverImageString = model.urlCoverImage, let urlCoverImage = URL(string: urlCoverImageString) {
+            self.imageViewCoverImage?.sd_setImage(with: urlCoverImage) { [weak self] (image, _, _, _) in
+                if let image = image {
+                    self?.loadedCoverImage(with: image)
                 }
             }
         }
@@ -82,17 +82,16 @@ class TravelFeedTableViewCell: UITableViewCell {
             labelDate.text = "\(date.getMMM.uppercased())\n\(date.getYYYY)"
         }
     }
-    // Reload only first 4 rows to set the height correctly, for later indexes we dont need to reload.
-    private let indexes = [0, 1, 2, 3]
+    
     private func loadedCoverImage(with image: UIImage) {
         
         let calculateHeight = (imageViewCoverImage.frame.width * image.size.height) / image.size.width
         constraintCoverImageHeight.constant = calculateHeight
-        imageViewCoverImage.image = image
         Logger.log(message: "Height for the row \(indexPath?.row) is = \(calculateHeight + constraintCoverImageTop.constant)", messageType: .debug)
-        if let indexPath = self.indexPath, indexes.contains(indexPath.row) {
+        if let indexPath = self.indexPath {
             delegate?.reloadRow(at: indexPath, height: calculateHeight + constraintCoverImageTop.constant)
         }
+        imageViewCoverImage.image = image
     }
     
 }

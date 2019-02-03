@@ -9,6 +9,7 @@ class TravelFeedListViewController: BaseViewController {
         didSet {
             tableViewTravelFeed.delegate = self
             tableViewTravelFeed.dataSource = self
+            tableViewTravelFeed.prefetchDataSource = self
             tableViewTravelFeed.separatorStyle = .none
             tableViewTravelFeed.backgroundColor = UIColor.travelFeedTableViewBackground()
             tableViewTravelFeed.rowHeight = UITableViewAutomaticDimension
@@ -52,10 +53,10 @@ class TravelFeedListViewController: BaseViewController {
     @IBOutlet private weak var constraintTableViewTop: NSLayoutConstraint!
     
     private var refreshControl = UIRefreshControl()
-    var presenter: TravelFeedListPresenterInput?
+    var presenter: TravelFeedListPresenterInput!
     var configurator: TravelFeedListConfigurator?
     private var selectedButtonType: FeedFilterType = .friends
-    
+    private var currentPage = 1
     private var heightForRow: [IndexPath: CGFloat] = [:]
     
     override func viewDidLoad() {
@@ -63,7 +64,7 @@ class TravelFeedListViewController: BaseViewController {
         // Do any additional setup after loading the view, typically from a nib.
         setupNavigationBar()
         configurator?.configure(travelFeedListViewController: self)
-        presenter?.fetchFeedList(for: selectedButtonType)
+        presenter?.fetchFeedList(for: selectedButtonType, page: currentPage)
     }
     
     override func didReceiveMemoryWarning() {
@@ -104,7 +105,8 @@ class TravelFeedListViewController: BaseViewController {
     
     @objc
     private func pulledToRefresh() {
-        presenter?.fetchFeedList(for: selectedButtonType)
+        currentPage = 1
+        presenter?.fetchFeedList(for: selectedButtonType, page: currentPage)
     }
     
     // MARK: Actions Methods
@@ -139,7 +141,8 @@ class TravelFeedListViewController: BaseViewController {
     }
     
     private func tappedButton(with type: FeedFilterType) {
-        
+        currentPage = 1
+        presenter.resetTravelFeedList()
         switch type {
         case .friends:
             buttonFriends.changeStyle(isSelected: true)
@@ -148,7 +151,7 @@ class TravelFeedListViewController: BaseViewController {
             buttonFriends.changeStyle(isSelected: false)
             buttonCommunity.changeStyle(isSelected: true)
         }
-        presenter?.fetchFeedList(for: selectedButtonType)
+        presenter?.fetchFeedList(for: selectedButtonType, page: currentPage)
     }
     
 }
@@ -176,11 +179,38 @@ extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSour
         return UITableViewAutomaticDimension
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == presenter.numberOfFeeds - 2, presenter.hasMoreFeeds {
+            currentPage += 1
+            presenter.fetchFeedList(for: selectedButtonType, page: currentPage)
+        }
+    }
+    
+}
+
+extension TravelFeedListViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        
+        for indexPath in indexPaths {
+            if let model = presenter.travelModel(for: indexPath.row),
+                let urlCoverImageString = model.urlCoverImage {
+                let imageView = UIImageView()
+                imageView.sd_setImage(with: URL(string: urlCoverImageString), completed: nil)
+            }
+        }
+        
+    }
+    
 }
 
 extension TravelFeedListViewController: TravelFeedListPresenterOutput {
+    
     func reloadData() {
         tableViewTravelFeed.reloadData()
+        if currentPage == 1, presenter.numberOfFeeds > 0 {
+            tableViewTravelFeed.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
     }
 }
 
@@ -193,7 +223,7 @@ extension TravelFeedListViewController: TravelFeedTableViewCellDelegate {
                 self?.tableViewTravelFeed.beginUpdates()
                 self?.tableViewTravelFeed.reloadRows(
                     at: [indexPath],
-                    with: .fade)
+                    with: .none)
                 self?.tableViewTravelFeed.endUpdates()
             }
         }

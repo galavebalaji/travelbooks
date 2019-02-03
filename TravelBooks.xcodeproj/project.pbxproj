@@ -54,9 +54,9 @@
 		F12705CD2204D960002C27D7 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CC2204D960002C27D7 /* Date+Extension.swift */; };
 		F12705D0220528A1002C27D7 /* TravelFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CE220528A1002C27D7 /* TravelFeedTableViewCell.swift */; };
 		F12705D1220528A1002C27D7 /* TravelFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */; };
-		F12705D422052E1A002C27D7 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705D322052E1A002C27D7 /* CustomImageView.swift */; };
 		F1F8F20D2205BB58000F1DB4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */; };
 		F1F8F21A220697EE000F1DB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1F8F21C220697EE000F1DB4 /* Localizable.strings */; };
+		F1F8F21F2206E02E000F1DB4 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8F21E2206E02E000F1DB4 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,12 +139,12 @@
 		F12705CC2204D960002C27D7 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		F12705CE220528A1002C27D7 /* TravelFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedTableViewCell.swift; sourceTree = "<group>"; };
 		F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravelFeedTableViewCell.xib; sourceTree = "<group>"; };
-		F12705D322052E1A002C27D7 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F1F8F218220697A8000F1DB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F1F8F219220697E1000F1DB4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F1F8F21B220697EE000F1DB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1F8F21D220697F1000F1DB4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F1F8F21E2206E02E000F1DB4 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +286,7 @@
 				F127058C22042DB2002C27D7 /* UIColor+Extension.swift */,
 				F12705CA2204D6E7002C27D7 /* String+Extension.swift */,
 				F12705CC2204D960002C27D7 /* Date+Extension.swift */,
+				F1F8F21E2206E02E000F1DB4 /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -455,7 +456,6 @@
 		F12705D222052DDB002C27D7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F12705D322052E1A002C27D7 /* CustomImageView.swift */,
 				F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */,
 			);
 			path = Common;
@@ -731,12 +731,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TravelBooks/Pods-TravelBooks-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -790,7 +792,6 @@
 				F12705CD2204D960002C27D7 /* Date+Extension.swift in Sources */,
 				F12705A622046D61002C27D7 /* Included.swift in Sources */,
 				F12705A422046D61002C27D7 /* Attributes.swift in Sources */,
-				F12705D422052E1A002C27D7 /* CustomImageView.swift in Sources */,
 				F12705C92204C6A5002C27D7 /* TravelFeedListConfigurator.swift in Sources */,
 				2112D30D205F70A200288FD9 /* AppDelegate.swift in Sources */,
 				F12705A322046D61002C27D7 /* User.swift in Sources */,
@@ -804,6 +805,7 @@
 				F12705832204184C002C27D7 /* Constant.swift in Sources */,
 				F12705C62204C243002C27D7 /* DateUtils.swift in Sources */,
 				F127059F22046D61002C27D7 /* DataResponse.swift in Sources */,
+				F1F8F21F2206E02E000F1DB4 /* UIImageView+Extension.swift in Sources */,
 				F1F8F20D2205BB58000F1DB4 /* CustomButton.swift in Sources */,
 				F12705D0220528A1002C27D7 /* TravelFeedTableViewCell.swift in Sources */,
 				F12705CB2204D6E7002C27D7 /* String+Extension.swift in Sources */,
