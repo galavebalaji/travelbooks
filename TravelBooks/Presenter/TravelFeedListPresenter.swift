@@ -12,6 +12,7 @@ protocol TravelFeedListPresenterInput {
 
 protocol TravelFeedListPresenterOutput: AnyObject {
     func reloadData()
+    func stopPullToRefreshIndicator()
 }
 
 class TravelFeedListPresenter: TravelFeedListPresenterInput {
@@ -35,6 +36,7 @@ class TravelFeedListPresenter: TravelFeedListPresenterInput {
                 self?.travelFeedList = feeds
                 
                 self?.travelFeedListPresenterOutput?.reloadData()
+                self?.travelFeedListPresenterOutput?.stopPullToRefreshIndicator()
                 
             case .failure(_):
                 break
