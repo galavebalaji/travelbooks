@@ -27,7 +27,8 @@ class TravelFeedListPresenter: TravelFeedListPresenterInput {
     }
     
     func fetchFeedList(for type: FeedFilterType) {
-        fetchTravelFeedUsecase.fetchFeed(with: TravelFeedRequest(feedFilterType: .community, page: 1)) { [weak self] result in
+        fetchTravelFeedUsecase.fetchFeed(with: TravelFeedRequest(feedFilterType: .community,
+                                                                 page: 1)) { [weak self] result in
             switch result {
             case .success(let feeds):
                 Logger.log(message: "Feeds = \(feeds.count)", messageType: .debug)
