@@ -5,7 +5,9 @@
 import Foundation
 
 protocol TravelFeedListPresenterInput {
-    func fetchFeedList(for type: FeedFilterType)
+    var hasMoreFeeds: Bool { get set }
+    var numberOfFeeds: Int { get }
+    func fetchFeedList(for type: FeedFilterType, page: Int)
     func numberOfRows(for section: Int) -> Int
     func travelModel(for index: Int) -> TravelFeedModel?
 }
@@ -23,24 +25,36 @@ class TravelFeedListPresenter: TravelFeedListPresenterInput {
     
     private var travelFeedList = [TravelFeedModel]()
     
+    var numberOfFeeds: Int {
+        return travelFeedList.count
+    }
+    
+    var hasMoreFeeds: Bool = true
+    
     init(fetchTravelFeedUsecase: FetchTravelFeedUsecase, travelFeedListPresenterOutput: TravelFeedListPresenterOutput?) {
         self.fetchTravelFeedUsecase = fetchTravelFeedUsecase
         self.travelFeedListPresenterOutput = travelFeedListPresenterOutput
     }
     
-    func fetchFeedList(for type: FeedFilterType) {
-        travelFeedListPresenterOutput?.showLoader(shouldShow: true)
+    func fetchFeedList(for type: FeedFilterType, page: Int) {
+        guard hasMoreFeeds else {
+            return
+        }
+        travelFeedListPresenterOutput?.showLoader(shouldShow: page == 1)
         fetchTravelFeedUsecase.fetchFeed(with: TravelFeedRequest(feedFilterType: .community,
-                                                                 page: 1)) { [weak self] result in
+                                                                 page: page)) { [weak self] result in
             self?.travelFeedListPresenterOutput?.showLoader(shouldShow: false)
             switch result {
-            case .success(let feeds):
-                Logger.log(message: "Feeds = \(feeds.count)", messageType: .debug)
-                self?.travelFeedList = feeds
+            case .success(let newFeeds):
+                Logger.log(message: "Feeds = \(newFeeds.count)", messageType: .debug)
+                if page == 1 {
+                    self?.travelFeedListPresenterOutput?.stopPullToRefreshIndicator()
+                    self?.travelFeedList = newFeeds
+                } else {
+                    self?.travelFeedList.append(contentsOf: newFeeds)
+                }
                 
                 self?.travelFeedListPresenterOutput?.reloadData()
-                self?.travelFeedListPresenterOutput?.stopPullToRefreshIndicator()
-                
             case .failure(_):
                 break
             }
