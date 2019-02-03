@@ -23,6 +23,14 @@ extension UIColor {
         return #colorLiteral(red: 0.9568627451, green: 0.9568627451, blue: 0.9568627451, alpha: 1)
     }
     
+    class func travelFeedButtonTypeSelected() -> UIColor {
+        return #colorLiteral(red: 0.9254901961, green: 0.3176470588, blue: 0.4117647059, alpha: 1)
+    }
+    
+    class func travelFeedButtonTypeDeselected() -> UIColor {
+        return #colorLiteral(red: 0.03921568627, green: 0.03921568627, blue: 0.03921568627, alpha: 1)
+    }
+    
     class func travelFeedCellUserName() -> UIColor {
         return UIColor.colorWithHexString(hexString: "#383E39")
     }

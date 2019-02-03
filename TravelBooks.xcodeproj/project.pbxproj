@@ -55,6 +55,7 @@
 		F12705D0220528A1002C27D7 /* TravelFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CE220528A1002C27D7 /* TravelFeedTableViewCell.swift */; };
 		F12705D1220528A1002C27D7 /* TravelFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */; };
 		F12705D422052E1A002C27D7 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705D322052E1A002C27D7 /* CustomImageView.swift */; };
+		F1F8F20D2205BB58000F1DB4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,8 +121,8 @@
 		F127059D22046D60002C27D7 /* Links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		F127059E22046D61002C27D7 /* Included.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Included.swift; sourceTree = "<group>"; };
 		F12705A722046F37002C27D7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		F12705A922047440002C27D7 /* TravelFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelFeedModel.swift; path = "TravelBooks/Models/Data Models/TravelFeedModel.swift"; sourceTree = SOURCE_ROOT; };
-		F12705AB22047697002C27D7 /* TravelFeedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelFeedRequest.swift; path = "TravelBooks/Models/Data Models/TravelFeedRequest.swift"; sourceTree = SOURCE_ROOT; };
+		F12705A922047440002C27D7 /* TravelFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelFeedModel.swift; path = "TravelBooks/Models/UI Models/TravelFeedModel.swift"; sourceTree = SOURCE_ROOT; };
+		F12705AB22047697002C27D7 /* TravelFeedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelFeedRequest.swift; path = "TravelBooks/Models/UI Models/TravelFeedRequest.swift"; sourceTree = SOURCE_ROOT; };
 		F12705AE22048467002C27D7 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		F12705B022048A8B002C27D7 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F12705B622049000002C27D7 /* TravelFeedListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedListPresenter.swift; sourceTree = "<group>"; };
@@ -138,6 +139,7 @@
 		F12705CE220528A1002C27D7 /* TravelFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedTableViewCell.swift; sourceTree = "<group>"; };
 		F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravelFeedTableViewCell.xib; sourceTree = "<group>"; };
 		F12705D322052E1A002C27D7 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,8 +287,8 @@
 		2128123E206B5C18003BB865 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F1F8F20E2205BC53000F1DB4 /* UI Models */,
 				F127059622046CF3002C27D7 /* Data Models */,
-				F127059522046CEC002C27D7 /* UI Models */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -377,15 +379,6 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		F127059522046CEC002C27D7 /* UI Models */ = {
-			isa = PBXGroup;
-			children = (
-				F12705A922047440002C27D7 /* TravelFeedModel.swift */,
-				F12705AB22047697002C27D7 /* TravelFeedRequest.swift */,
-			);
-			path = "UI Models";
-			sourceTree = "<group>";
-		};
 		F127059622046CF3002C27D7 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,8 +450,18 @@
 			isa = PBXGroup;
 			children = (
 				F12705D322052E1A002C27D7 /* CustomImageView.swift */,
+				F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		F1F8F20E2205BC53000F1DB4 /* UI Models */ = {
+			isa = PBXGroup;
+			children = (
+				F12705A922047440002C27D7 /* TravelFeedModel.swift */,
+				F12705AB22047697002C27D7 /* TravelFeedRequest.swift */,
+			);
+			path = "UI Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -794,6 +797,7 @@
 				F12705832204184C002C27D7 /* Constant.swift in Sources */,
 				F12705C62204C243002C27D7 /* DateUtils.swift in Sources */,
 				F127059F22046D61002C27D7 /* DataResponse.swift in Sources */,
+				F1F8F20D2205BB58000F1DB4 /* CustomButton.swift in Sources */,
 				F12705D0220528A1002C27D7 /* TravelFeedTableViewCell.swift in Sources */,
 				F12705CB2204D6E7002C27D7 /* String+Extension.swift in Sources */,
 				F12705AA22047440002C27D7 /* TravelFeedModel.swift in Sources */,
@@ -963,13 +967,13 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = M4P9MTN4SU;
 				INFOPLIST_FILE = "$(SRCROOT)/TravelBooks/Application/Infos/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Travel.TravelBooks.debug;
+				PRODUCT_BUNDLE_IDENTIFIER = "info.mta.mymta-stage";
 				PRODUCT_NAME = "$(TARGET_NAME) $(CONFIGURATION)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_StageMYmta;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -988,7 +992,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/TravelBooks/Application/Infos/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Travel.TravelBooks.debug;
+				PRODUCT_BUNDLE_IDENTIFIER = "info.mta.mymta-stage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
@@ -1137,7 +1141,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/TravelBooks/Application/Infos/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Travel.TravelBooks.debug;
+				PRODUCT_BUNDLE_IDENTIFIER = "info.mta.mymta-stage";
 				PRODUCT_NAME = "$(TARGET_NAME) $(CONFIGURATION)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = STAGING;

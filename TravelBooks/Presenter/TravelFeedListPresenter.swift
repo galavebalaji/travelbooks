@@ -5,7 +5,7 @@
 import Foundation
 
 protocol TravelFeedListPresenterInput {
-    func fetchFeedList()
+    func fetchFeedList(for type: FeedFilterType)
     func numberOfRows(for section: Int) -> Int
     func travelModel(for index: Int) -> TravelFeedModel?
 }
@@ -26,7 +26,7 @@ class TravelFeedListPresenter: TravelFeedListPresenterInput {
         self.travelFeedListPresenterOutput = travelFeedListPresenterOutput
     }
     
-    func fetchFeedList() {
+    func fetchFeedList(for type: FeedFilterType) {
         fetchTravelFeedUsecase.fetchFeed(with: TravelFeedRequest(feedFilterType: .community, page: 1)) { [weak self] result in
             switch result {
             case .success(let feeds):
