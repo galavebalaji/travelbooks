@@ -11,10 +11,7 @@ class CustomButton: UIButton {
         self.setTitleColor(color, for: .normal)
         
         if isSelected {
-            self.layer.borderWidth = 1
-            self.layer.cornerRadius = 10
-            self.layer.borderColor = UIColor.travelFeedCellBorder().cgColor
-            self.clipsToBounds = true
+            rounded(10, withBorder: true, borderColor: UIColor.travelFeedCellBorder(), borderWidth: 1)
         } else {
             self.layer.borderColor = UIColor.clear.cgColor
         }

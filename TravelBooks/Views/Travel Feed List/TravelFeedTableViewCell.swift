@@ -13,16 +13,13 @@ class TravelFeedTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var viewBackground: UIView! {
         didSet {
-            viewBackground.layer.borderWidth = 0.7
-            viewBackground.layer.cornerRadius = 10
-            viewBackground.layer.borderColor = UIColor.travelFeedCellBorder().cgColor
-            viewBackground.clipsToBounds = true
+            viewBackground.rounded(10, withBorder: true, borderColor: UIColor.travelFeedCellBorder(), borderWidth: 0.7)
         }
     }
     
     @IBOutlet private weak var imageViewUserAvatar: UIImageView! {
         didSet {
-            imageViewUserAvatar.roundedImage(imageViewUserAvatar.frame.width / 2, color: .clear)
+            imageViewUserAvatar.rounded(imageViewUserAvatar.frame.width / 2, borderColor: .clear)
         }
     }
     @IBOutlet private weak var labelUserName: UILabel! {

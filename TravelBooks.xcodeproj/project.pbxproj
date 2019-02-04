@@ -56,7 +56,7 @@
 		F12705D1220528A1002C27D7 /* TravelFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */; };
 		F1F8F20D2205BB58000F1DB4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */; };
 		F1F8F21A220697EE000F1DB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1F8F21C220697EE000F1DB4 /* Localizable.strings */; };
-		F1F8F21F2206E02E000F1DB4 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8F21E2206E02E000F1DB4 /* UIImageView+Extension.swift */; };
+		F1F8F21F2206E02E000F1DB4 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8F21E2206E02E000F1DB4 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,7 +144,7 @@
 		F1F8F219220697E1000F1DB4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F1F8F21B220697EE000F1DB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1F8F21D220697F1000F1DB4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F1F8F21E2206E02E000F1DB4 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		F1F8F21E2206E02E000F1DB4 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,7 +286,7 @@
 				F127058C22042DB2002C27D7 /* UIColor+Extension.swift */,
 				F12705CA2204D6E7002C27D7 /* String+Extension.swift */,
 				F12705CC2204D960002C27D7 /* Date+Extension.swift */,
-				F1F8F21E2206E02E000F1DB4 /* UIImageView+Extension.swift */,
+				F1F8F21E2206E02E000F1DB4 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -805,7 +805,7 @@
 				F12705832204184C002C27D7 /* Constant.swift in Sources */,
 				F12705C62204C243002C27D7 /* DateUtils.swift in Sources */,
 				F127059F22046D61002C27D7 /* DataResponse.swift in Sources */,
-				F1F8F21F2206E02E000F1DB4 /* UIImageView+Extension.swift in Sources */,
+				F1F8F21F2206E02E000F1DB4 /* UIView+Extension.swift in Sources */,
 				F1F8F20D2205BB58000F1DB4 /* CustomButton.swift in Sources */,
 				F12705D0220528A1002C27D7 /* TravelFeedTableViewCell.swift in Sources */,
 				F12705CB2204D6E7002C27D7 /* String+Extension.swift in Sources */,
