@@ -26,7 +26,7 @@ class TravelFeedListViewController: BaseViewController {
     
     @IBOutlet private weak var buttonTravelBooks: UIButton! {
         didSet {
-            buttonTravelBooks.isEnabled = false
+            buttonTravelBooks.isEnabled = true
         }
     }
     
@@ -46,7 +46,7 @@ class TravelFeedListViewController: BaseViewController {
     
     @IBOutlet private weak var imageViewArrow: UIImageView! {
         didSet {
-            self.imageViewArrow.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+            self.imageViewArrow.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         }
     }
     
@@ -56,6 +56,7 @@ class TravelFeedListViewController: BaseViewController {
     var presenter: TravelFeedListPresenterInput!
     var configurator: TravelFeedListConfigurator?
     private var selectedButtonType: FeedFilterType = .friends
+    private var isExpandedFilterView = true
     private var currentPage = 1
     private var heightForRow: [IndexPath: CGFloat] = [:]
     
@@ -111,7 +112,7 @@ class TravelFeedListViewController: BaseViewController {
     
     // MARK: Actions Methods
     @IBAction private func buttonTravelBooksTapped(_ sender: UIButton) {
-        hideStackViewElements(shouldHide: false)
+        hideStackViewElements(shouldHide: isExpandedFilterView)
     }
     
     @IBAction private func buttonFriendsTapped(_ sender: CustomButton) {
@@ -129,13 +130,14 @@ class TravelFeedListViewController: BaseViewController {
     }
     
     private func hideStackViewElements(shouldHide: Bool) {
+        isExpandedFilterView = !shouldHide
         UIView.animate(withDuration: 0.25) {
             self.labelSortBy.isHidden = shouldHide
             self.stackViewOfButtons.isHidden = shouldHide
-            self.buttonTravelBooks.isEnabled = shouldHide
+            //self.buttonTravelBooks.isEnabled = shouldHide
             self.constraintTableViewTop.constant = shouldHide ?
                 Constant.Dimension.iOSPOINTS0 : Constant.Dimension.iOSPOINTS20
-            let angle = shouldHide ? (-Double.pi / 2) : (Double.pi / 2)
+            let angle = shouldHide ? (Double.pi / 2) : (-Double.pi / 2)
             self.imageViewArrow.transform = CGAffineTransform(rotationAngle: CGFloat(angle))
         }
     }
