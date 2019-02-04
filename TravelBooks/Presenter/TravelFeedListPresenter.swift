@@ -42,7 +42,7 @@ class TravelFeedListPresenter: TravelFeedListPresenterInput {
             return
         }
         travelFeedListPresenterOutput?.showLoader(shouldShow: page == 1)
-        fetchTravelFeedUsecase.fetchFeed(with: TravelFeedRequest(feedFilterType: .community,
+        fetchTravelFeedUsecase.fetchFeed(with: TravelFeedRequest(feedFilterType: type,
                                                                  page: page)) { [weak self] result in
             self?.travelFeedListPresenterOutput?.showLoader(shouldShow: false)
             switch result {

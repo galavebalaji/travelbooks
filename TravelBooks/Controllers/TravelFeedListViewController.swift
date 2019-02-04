@@ -12,8 +12,6 @@ class TravelFeedListViewController: BaseViewController {
             tableViewTravelFeed.prefetchDataSource = self
             tableViewTravelFeed.separatorStyle = .none
             tableViewTravelFeed.backgroundColor = UIColor.travelFeedTableViewBackground()
-            tableViewTravelFeed.rowHeight = UITableViewAutomaticDimension
-            tableViewTravelFeed.estimatedRowHeight = 247
             let nib = UINib(nibName: Constant.TravelFeedListConstants.travelFeedTableCellName, bundle: nil)
             tableViewTravelFeed.register(nib,
                                          forCellReuseIdentifier: Constant.TravelFeedListConstants.travelFeedTableCellId)
@@ -26,7 +24,7 @@ class TravelFeedListViewController: BaseViewController {
     
     @IBOutlet private weak var buttonTravelBooks: UIButton! {
         didSet {
-            buttonTravelBooks.isEnabled = false
+            buttonTravelBooks.isEnabled = true
         }
     }
     
@@ -46,7 +44,7 @@ class TravelFeedListViewController: BaseViewController {
     
     @IBOutlet private weak var imageViewArrow: UIImageView! {
         didSet {
-            self.imageViewArrow.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+            self.imageViewArrow.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         }
     }
     
@@ -56,6 +54,7 @@ class TravelFeedListViewController: BaseViewController {
     var presenter: TravelFeedListPresenterInput!
     var configurator: TravelFeedListConfigurator?
     private var selectedButtonType: FeedFilterType = .friends
+    private var isExpandedFilterView = true
     private var currentPage = 1
     private var heightForRow: [IndexPath: CGFloat] = [:]
     
@@ -65,11 +64,16 @@ class TravelFeedListViewController: BaseViewController {
         setupNavigationBar()
         configurator?.configure(travelFeedListViewController: self)
         presenter?.fetchFeedList(for: selectedButtonType, page: currentPage)
+         TravelFeedTableViewCell.imageViewWidth = tableViewTravelFeed.frame.width - (2 * Constant.Dimension.iOSPOINTS16)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     private func setupNavigationBar() {
@@ -111,7 +115,7 @@ class TravelFeedListViewController: BaseViewController {
     
     // MARK: Actions Methods
     @IBAction private func buttonTravelBooksTapped(_ sender: UIButton) {
-        hideStackViewElements(shouldHide: false)
+        hideStackViewElements(shouldHide: isExpandedFilterView)
     }
     
     @IBAction private func buttonFriendsTapped(_ sender: CustomButton) {
@@ -129,13 +133,14 @@ class TravelFeedListViewController: BaseViewController {
     }
     
     private func hideStackViewElements(shouldHide: Bool) {
+        isExpandedFilterView = !shouldHide
         UIView.animate(withDuration: 0.25) {
             self.labelSortBy.isHidden = shouldHide
             self.stackViewOfButtons.isHidden = shouldHide
-            self.buttonTravelBooks.isEnabled = shouldHide
+            //self.buttonTravelBooks.isEnabled = shouldHide
             self.constraintTableViewTop.constant = shouldHide ?
                 Constant.Dimension.iOSPOINTS0 : Constant.Dimension.iOSPOINTS20
-            let angle = shouldHide ? (-Double.pi / 2) : (Double.pi / 2)
+            let angle = shouldHide ? (Double.pi / 2) : (-Double.pi / 2)
             self.imageViewArrow.transform = CGAffineTransform(rotationAngle: CGFloat(angle))
         }
     }
@@ -158,6 +163,10 @@ class TravelFeedListViewController: BaseViewController {
 
 extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.numberOfRows(for: section) ?? 0
     }
@@ -172,14 +181,26 @@ extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSour
         cell.indexPath = indexPath
         cell.delegate = self
         cell.configureCell(with: model)
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return heightForRow[indexPath] ?? UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return heightForRow[indexPath] ?? UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if let model = presenter?.travelModel(for: indexPath.row),
+            let travelFeedBackCell = cell as? TravelFeedTableViewCell {
+            travelFeedBackCell.configureCell(with: model)
+        }
+        
         if indexPath.row == presenter.numberOfFeeds - 2, presenter.hasMoreFeeds {
             currentPage += 1
             presenter.fetchFeedList(for: selectedButtonType, page: currentPage)
@@ -199,6 +220,9 @@ extension TravelFeedListViewController: UITableViewDataSourcePrefetching {
                 imageView.sd_setImage(with: URL(string: urlCoverImageString), completed: nil)
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         
     }
     
@@ -219,13 +243,11 @@ extension TravelFeedListViewController: TravelFeedTableViewCellDelegate {
     func reloadRow(at indexPath: IndexPath, height: CGFloat) {
         if heightForRow[indexPath] == nil {
             heightForRow[indexPath] = height
-            DispatchQueue.main.async { [weak self] in
-                self?.tableViewTravelFeed.beginUpdates()
-                self?.tableViewTravelFeed.reloadRows(
-                    at: [indexPath],
-                    with: .none)
-                self?.tableViewTravelFeed.endUpdates()
-            }
+            self.tableViewTravelFeed.beginUpdates()
+            self.tableViewTravelFeed.reloadRows(
+                at: [indexPath],
+                with: .none)
+            self.tableViewTravelFeed.endUpdates()
         }
     }
     
