@@ -74,7 +74,6 @@
                             <constraint firstItem="8Qy-fR-pMd" firstAttribute="height" secondItem="OxZ-ru-waD" secondAttribute="height" id="3cq-cN-Co6"/>
                             <constraint firstAttribute="trailing" secondItem="OxZ-ru-waD" secondAttribute="trailing" constant="16" id="3ex-fU-cS1"/>
                             <constraint firstItem="8Qy-fR-pMd" firstAttribute="width" secondItem="OxZ-ru-waD" secondAttribute="width" id="9ZT-7U-Gao"/>
-                            <constraint firstAttribute="bottom" secondItem="fFo-sg-3mA" secondAttribute="bottom" priority="999" id="C41-32-du5"/>
                             <constraint firstItem="jka-Oh-GmZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="67d-Tw-Kw7" secondAttribute="top" constant="8" id="E6u-IO-kHc"/>
                             <constraint firstItem="fFo-sg-3mA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jka-Oh-GmZ" secondAttribute="bottom" constant="8" id="Iza-o4-eXT"/>
                             <constraint firstItem="fFo-sg-3mA" firstAttribute="top" secondItem="67d-Tw-Kw7" secondAttribute="top" priority="999" constant="58" id="NMB-IL-esJ"/>
@@ -97,6 +96,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="67d-Tw-Kw7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="17O-nv-B9c"/>
+                    <constraint firstAttribute="bottom" secondItem="fFo-sg-3mA" secondAttribute="bottom" priority="999" constant="70.5" id="X8q-Od-KIt"/>
                     <constraint firstAttribute="bottomMargin" secondItem="67d-Tw-Kw7" secondAttribute="bottom" constant="8" id="YFw-1J-egw"/>
                     <constraint firstAttribute="trailingMargin" secondItem="67d-Tw-Kw7" secondAttribute="trailing" id="g7a-2i-pV1"/>
                     <constraint firstItem="67d-Tw-Kw7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="iVy-rM-svV"/>
@@ -105,6 +105,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="constraintCoverImageBottom" destination="X8q-Od-KIt" id="UJP-2y-JVJ"/>
                 <outlet property="constraintCoverImageHeight" destination="pql-TJ-JdB" id="pwL-ol-wm0"/>
                 <outlet property="constraintCoverImageTop" destination="NMB-IL-esJ" id="Q8N-NH-ZcJ"/>
                 <outlet property="imageViewCoverImage" destination="fFo-sg-3mA" id="sy3-q8-LlG"/>

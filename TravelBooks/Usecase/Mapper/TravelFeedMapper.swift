@@ -20,17 +20,12 @@ struct TravelFeedMapper {
                 if let userId = feed.relationships?.user?.userData?.id,
                     let userInfo = getUserInformation(for: userId, from: userIncludes) {
                     let date = feed.attributes?.publishedAt?.toDate
-                    
-                    //let currentDate = feed.attributes?.publishedAt?.toDate?.currentDate
-                    
                     travelFeedModel.append(TravelFeedModel(userInformation: userInfo,
                                                             urlCoverImage: feed.attributes?.coverImageUrl,
                                                             publishedDate: date))
                 }
             }
-            
         }
-        
         return travelFeedModel
     }
     
@@ -56,7 +51,6 @@ struct TravelFeedMapper {
         return nil
     }
     
-    
     static func getParameters(from request: TravelFeedRequest) -> [String: Any] {
         
         var params = [String: Any]()
@@ -69,7 +63,6 @@ struct TravelFeedMapper {
         }
         
         params["page"] = request.page
-        
         return params
     }
     
