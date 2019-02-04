@@ -17,14 +17,19 @@ class FetchFeedListServiceImpl: BaseService, FetchFeedListService {
             return
         }
         let params = TravelFeedMapper.getParameters(from: request)
+        
         self.getRequest(type: TravelFeedResponse.self,
-                        url: url, parameters: params) { (travelFeedResponse, json, error, data) in
-            
-            guard let response = travelFeedResponse, error == nil else {
-                completion(.failure(error!))
-                return
-            }
-            completion(.success(response))
+                        isNeededAccessToken: true,
+                        url: url,
+                        parameters: params,
+                        headers: nil) { travelFeedResponse, _, error, _ in
+                            
+                            guard let response = travelFeedResponse, error == nil else {
+                                completion(.failure(error!))
+                                return
+                            }
+                            completion(.success(response))
         }
     }
+    
 }

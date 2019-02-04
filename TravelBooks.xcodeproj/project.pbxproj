@@ -54,6 +54,7 @@
 		F12705CD2204D960002C27D7 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CC2204D960002C27D7 /* Date+Extension.swift */; };
 		F12705D0220528A1002C27D7 /* TravelFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CE220528A1002C27D7 /* TravelFeedTableViewCell.swift */; };
 		F12705D1220528A1002C27D7 /* TravelFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */; };
+		F1A6263B220870FD007F7BB4 /* TravelBookTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6263A220870FD007F7BB4 /* TravelBookTokenManager.swift */; };
 		F1F8F20D2205BB58000F1DB4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */; };
 		F1F8F21A220697EE000F1DB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1F8F21C220697EE000F1DB4 /* Localizable.strings */; };
 		F1F8F21F2206E02E000F1DB4 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8F21E2206E02E000F1DB4 /* UIView+Extension.swift */; };
@@ -139,6 +140,7 @@
 		F12705CC2204D960002C27D7 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		F12705CE220528A1002C27D7 /* TravelFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedTableViewCell.swift; sourceTree = "<group>"; };
 		F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravelFeedTableViewCell.xib; sourceTree = "<group>"; };
+		F1A6263A220870FD007F7BB4 /* TravelBookTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelBookTokenManager.swift; sourceTree = "<group>"; };
 		F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F1F8F218220697A8000F1DB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F1F8F219220697E1000F1DB4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		2112D346205F720E00288FD9 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				F1A62639220870DA007F7BB4 /* Manager */,
 				F127058722041A18002C27D7 /* Utility */,
 				2112D349205F721D00288FD9 /* Constants */,
 				2112D348205F721800288FD9 /* Resources */,
@@ -459,6 +462,14 @@
 				F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		F1A62639220870DA007F7BB4 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F1A6263A220870FD007F7BB4 /* TravelBookTokenManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		F1F8F20E2205BC53000F1DB4 /* UI Models */ = {
@@ -778,6 +789,7 @@
 			files = (
 				F12705C22204AE1A002C27D7 /* TravelFeedMapper.swift in Sources */,
 				F127058D22042DB2002C27D7 /* UIColor+Extension.swift in Sources */,
+				F1A6263B220870FD007F7BB4 /* TravelBookTokenManager.swift in Sources */,
 				F127058B22041D1F002C27D7 /* UIFont+Extension.swift in Sources */,
 				F12705C42204C0D8002C27D7 /* FeedAttributes.swift in Sources */,
 				F12705A822046F37002C27D7 /* UserData.swift in Sources */,
