@@ -32,8 +32,11 @@ class TravelFeedTableViewCell: UITableViewCell {
     @IBOutlet private weak var constraintCoverImageHeight: NSLayoutConstraint!
     @IBOutlet private weak var constraintCoverImageTop: NSLayoutConstraint!
     
+    @IBOutlet private  weak var constraintCoverImageBottom: NSLayoutConstraint!
+    
     weak var delegate: TravelFeedTableViewCellDelegate?
     var indexPath: IndexPath?
+    static var imageViewWidth: CGFloat = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,10 +55,14 @@ class TravelFeedTableViewCell: UITableViewCell {
             imageViewUserAvatar.sd_setImage(with: URL(string: urlUserAvatar), completed: nil)
         }
         
-        if let urlCoverImageString = model.urlCoverImage, let urlCoverImage = URL(string: urlCoverImageString) {
-            self.imageViewCoverImage?.sd_setImage(with: urlCoverImage) { [weak self] (image, _, _, _) in
-                if let image = image {
+        if let urlCoverImageString = model.urlCoverImage,
+            let urlCoverImage = URL(string: urlCoverImageString) {
+            self.imageViewCoverImage?.sd_setImage(with: urlCoverImage) { [weak self] image, error, _, imageURL in
+                
+                if error == nil, let image = image {
                     self?.loadedCoverImage(with: image)
+                } else {
+                    Logger.log(message: "Unable to load Image from URL = \(String(describing: imageURL?.absoluteString))", messageType: .debug)
                 }
             }
         }
@@ -81,14 +88,20 @@ class TravelFeedTableViewCell: UITableViewCell {
     }
     
     private func loadedCoverImage(with image: UIImage) {
-        
-        let calculateHeight = (imageViewCoverImage.frame.width * image.size.height) / image.size.width
-        constraintCoverImageHeight.constant = calculateHeight
-        Logger.log(message: "Height for the row \(indexPath?.row) is = \(calculateHeight + constraintCoverImageTop.constant)", messageType: .debug)
+        Logger.log(message: "imageViewCoverImage \(indexPath?.row) is = \(imageViewCoverImage.frame.width)", messageType: .debug)
+        let calculatedHeight = (image.size.height * TravelFeedTableViewCell.imageViewWidth) / image.size.width
         if let indexPath = self.indexPath {
-            delegate?.reloadRow(at: indexPath, height: calculateHeight + constraintCoverImageTop.constant)
+            let totalCellHeight = calculatedHeight +
+                constraintCoverImageTop.constant +
+                constraintCoverImageBottom.constant
+            Logger.log(message: "Height for the row \(indexPath.row) is = \(totalCellHeight)", messageType: .debug)
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.constraintCoverImageHeight.constant = calculatedHeight
+                self?.delegate?.reloadRow(at: indexPath, height: totalCellHeight)
+            }
         }
-        imageViewCoverImage.image = image
+        
     }
     
 }
