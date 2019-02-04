@@ -69,7 +69,6 @@ struct TravelFeedMapper {
         }
         
         params["page"] = request.page
-        params["access_token"] = "c681ecad81a93030e201b6bef91ae1f0f3c36b0bdf39d1402b8c24954f6cc2ef"
         
         return params
     }
