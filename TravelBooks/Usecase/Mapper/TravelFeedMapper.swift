@@ -4,8 +4,13 @@
 
 import Foundation
 
+/*
+ Contains business logic for mapping values from Data/Response models to UI Models
+ */
+
 struct TravelFeedMapper {
     
+    // Convert TravelFeedResponse to array of TravelFeedModel
     static func getTravelFeedModel(from response: TravelFeedResponse) -> [TravelFeedModel] {
         
         var travelFeedModel = [TravelFeedModel]()
@@ -21,14 +26,15 @@ struct TravelFeedMapper {
                     let userInfo = getUserInformation(for: userId, from: userIncludes) {
                     let date = feed.attributes?.publishedAt?.toDate
                     travelFeedModel.append(TravelFeedModel(userInformation: userInfo,
-                                                            urlCoverImage: feed.attributes?.coverImageUrl,
-                                                            publishedDate: date))
+                                                           urlCoverImage: feed.attributes?.coverImageUrl,
+                                                           publishedDate: date))
                 }
             }
         }
         return travelFeedModel
     }
     
+    // Finds the user information from includes
     static private func getUserInformation(for userId: String, from includes: [Included]) -> UserInformation? {
         
         guard !includes.isEmpty else {
@@ -51,6 +57,7 @@ struct TravelFeedMapper {
         return nil
     }
     
+    // Converts UI request model to parameter dictionary needed for API
     static func getParameters(from request: TravelFeedRequest) -> [String: Any] {
         
         var params = [String: Any]()
@@ -63,6 +70,7 @@ struct TravelFeedMapper {
         }
         
         params["page"] = request.page
+        
         return params
     }
     

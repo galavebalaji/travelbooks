@@ -62,7 +62,9 @@ class TravelFeedTableViewCell: UITableViewCell {
                 if error == nil, let image = image {
                     self?.loadedCoverImage(with: image)
                 } else {
-                    Logger.log(message: "Unable to load Image from URL = \(String(describing: imageURL?.absoluteString))", messageType: .debug)
+                    let url = imageURL?.absoluteString
+                    Logger.log(message: "Unable to load Image from URL = \(String(describing: url))",
+                               messageType: .debug)
                 }
             }
         }
@@ -88,7 +90,9 @@ class TravelFeedTableViewCell: UITableViewCell {
     }
     
     private func loadedCoverImage(with image: UIImage) {
-        Logger.log(message: "imageViewCoverImage \(indexPath?.row) is = \(imageViewCoverImage.frame.width)", messageType: .debug)
+        let imageWidth = imageViewCoverImage.frame.width
+        Logger.log(message: "imageViewCover \(String(describing: indexPath?.row)) is = \(imageWidth)",
+                   messageType: .debug)
         let calculatedHeight = (image.size.height * TravelFeedTableViewCell.imageViewWidth) / image.size.width
         if let indexPath = self.indexPath {
             let totalCellHeight = calculatedHeight +

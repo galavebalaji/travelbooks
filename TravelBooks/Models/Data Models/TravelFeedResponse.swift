@@ -1,6 +1,7 @@
 
 import Foundation
 
+// As Base data layer model
 struct TravelFeedResponse: Codable {
     
 	let data: [DataResponse]?

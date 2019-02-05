@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if window == nil {
             window = UIWindow(frame: UIScreen.main.bounds)
         }
+        
+        // Get travelFeedViewController and configure it and embedd in NavigationViewController
         if let travelFeedViewController = ViewUtility.getTravelFeedListViewController() {
             travelFeedViewController.configurator = TravelFeedListConfiguratorImpl()
             let navigationController = UINavigationController(rootViewController: travelFeedViewController)

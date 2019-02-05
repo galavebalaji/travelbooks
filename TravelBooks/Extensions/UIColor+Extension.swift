@@ -5,6 +5,7 @@
 import Foundation
 import UIKit
 
+// Color extenstion to provide colors to UI elements
 extension UIColor {
     
     class func navigationTint() -> UIColor {

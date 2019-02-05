@@ -4,21 +4,32 @@
 import Foundation
 import Alamofire
 
+/*
+ All API request shall go through this service
+ This is just a bottleneck for all API requests in a App
+ All service classes must inherite this to take an adantages
+ */
+
 class BaseService: SessionDelegate {
     
+    // Define the alamofire session manager
     private var requestManager: SessionManager?
+    
+    // defines data request
     private var dataRequest: DataRequest?
     
     private let accessTokenKey = "access_token"
     
     override init() {
-        
         super.init()
+        
         let configuration = URLSessionConfiguration.default
         configuration.requestCachePolicy = .reloadIgnoringCacheData
         requestManager = SessionManager(configuration: configuration, delegate: self, serverTrustPolicyManager: nil)
     }
     
+    // Each inherited service should call this method for GET method only
+    // This check if this service needs a accessToken and based on that it fetches
     func getRequest<T: Decodable>(type model: T.Type,
                                   isNeededAccessToken: Bool,
                                   url: URL,
@@ -30,15 +41,21 @@ class BaseService: SessionDelegate {
             // check if access token is there, else fetch it from OAuth
             if TravelBookTokenManager.shared.hasAccessToken(),
                 let token = TravelBookTokenManager.shared.getAccessToken() {
+                
                 var params = parameters
                 params?[accessTokenKey] = token
+                
                 loadData(type: T.self, url: url, parameters: params, headers: headers, completion: completion)
+                
             } else {
                 // start process of getting access token
                 TravelBookTokenManager.shared.startAuthentication { [weak self] accessToken, error in
+                    
                     if let token = accessToken, error == nil {
+                        
                         var params = parameters
                         params?[self?.accessTokenKey ?? ""] = token
+                        
                         self?.loadData(type: T.self,
                                        url: url,
                                        parameters: params,
@@ -54,6 +71,7 @@ class BaseService: SessionDelegate {
         }
     }
     
+    // loads data from URL
     final private func loadData<T: Decodable>(type model: T.Type,
                                               url: URL,
                                               parameters: [String: Any]?,

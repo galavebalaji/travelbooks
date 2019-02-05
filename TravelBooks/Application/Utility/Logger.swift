@@ -10,6 +10,7 @@ enum LoggerMessageType: String {
     case info = "Info:"
 }
 
+// Logger class which will print logs along with file name date and line number where it call from
 class Logger {
     static private var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -21,7 +22,7 @@ class Logger {
     
     private class func sourceFileName(filePath: String) -> String {
         let components = filePath.components(separatedBy: "/")
-        return components.isEmpty ? "" : components.last!
+        return components.isEmpty ? "" : (components.last ?? "")
     }
     
     class func log(message: String, messageType: LoggerMessageType, fileName: String = #file, lineNumber: Int = #line, function: String = #function) {
