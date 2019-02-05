@@ -275,6 +275,8 @@ extension TravelFeedListViewController: UITableViewDataSourcePrefetching {
     
 }
 
+// MARK: TravelFeedListPresenterOutput methods
+
 extension TravelFeedListViewController: TravelFeedListPresenterOutput {
     
     func reloadData() {
