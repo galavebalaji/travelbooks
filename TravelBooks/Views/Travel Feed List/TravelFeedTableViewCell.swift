@@ -47,8 +47,8 @@ class TravelFeedTableViewCell: UITableViewCell {
     // Inde
     var indexPath: IndexPath?
     
-    // This holds the cover imageView widht according to the device size
-    static var imageViewWidth: CGFloat = 0
+    // This holds the cover imageView width according to the device size
+    static var coverImageViewWidth: CGFloat = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -116,7 +116,7 @@ class TravelFeedTableViewCell: UITableViewCell {
                    messageType: .debug)
         
         // Get the height of image
-        let calculatedImageHeight = (image.size.height * TravelFeedTableViewCell.imageViewWidth) / image.size.width
+        let calculatedImageHeight = (image.size.height * TravelFeedTableViewCell.coverImageViewWidth) / image.size.width
         
         if let indexPath = self.indexPath {
             

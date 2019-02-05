@@ -90,7 +90,7 @@ class TravelFeedListViewController: BaseViewController {
         presenter?.fetchFeedList(for: selectedButtonType, page: currentPage)
         
         // This helps to know what exact size of Cover imageview in the table view by substracting this leading and trailing depending on device size
-        TravelFeedTableViewCell.imageViewWidth = tableViewTravelFeed.frame.width - (2 * Constant.Dimension.iOSPOINTS16)
+        TravelFeedTableViewCell.coverImageViewWidth = tableViewTravelFeed.frame.width - (2 * Constant.Dimension.iOSPOINTS16)
     }
     
     override func didReceiveMemoryWarning() {
