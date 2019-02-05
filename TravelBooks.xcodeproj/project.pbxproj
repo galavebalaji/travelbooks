@@ -1041,7 +1041,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/TravelBooks/Application/Infos/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "info.mta.mymta-stage";
+				PRODUCT_BUNDLE_IDENTIFIER = com.travelbook.travel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Dev_StageMYmta;
 				SWIFT_VERSION = 4.0;
@@ -1062,7 +1062,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/TravelBooks/Application/Infos/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "info.mta.mymta-stage";
+				PRODUCT_BUNDLE_IDENTIFIER = com.travelbook.travel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
@@ -1212,7 +1212,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/TravelBooks/Application/Infos/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "info.mta.mymta-stage";
+				PRODUCT_BUNDLE_IDENTIFIER = com.travelbook.travel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = STAGING;
