@@ -98,9 +98,6 @@ class TravelFeedListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // This helps to know what exact size of Cover imageview in the table view by substracting this leading and trailing depending on device size
-        TravelFeedTableViewCell.coverImageViewWidth = tableViewTravelFeed.frame.width -
-            (2 * Constant.Dimension.iOSPOINTS16)
     }
     
     // Setup NavigationBar and its color
@@ -203,6 +200,7 @@ class TravelFeedListViewController: BaseViewController {
 extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         // This helps to know what exact size of Cover imageview in the table view by substracting this leading and trailing depending on device size
         TravelFeedTableViewCell.coverImageViewWidth = tableViewTravelFeed.frame.width -
             (2 * Constant.Dimension.iOSPOINTS16)

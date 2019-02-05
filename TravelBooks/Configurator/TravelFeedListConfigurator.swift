@@ -10,7 +10,7 @@ protocol TravelFeedListConfigurator {
 
 class TravelFeedListConfiguratorImpl: TravelFeedListConfigurator {
     
-    // Configures the all layes just line injecting
+    // Configures the all classes just like injecting
     func configure(travelFeedListViewController: TravelFeedListViewController) {
         
         let service = FetchFeedListServiceImpl()

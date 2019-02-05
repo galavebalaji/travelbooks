@@ -32,7 +32,7 @@ class FetchTravelFeedUsecaseTest: BaseTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
-        let expectation = XCTestExpectation(description: "result closure triggered")
+        let expectation = XCTestExpectation(description: "Feed list count must be equal to 25")
         let request = TravelFeedRequest(feedFilterType: .community, page: 1)
         
         fetchTravelFeedUsecase?.fetchFeed(with: request) { result in

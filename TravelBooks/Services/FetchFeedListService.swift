@@ -18,6 +18,8 @@ class FetchFeedListServiceImpl: BaseService, FetchFeedListService {
             completion(.failure(NSError(domain: "com.travelbook.feed", code: 45454, userInfo: nil) as Error))
             return
         }
+        
+        // Get parameters from request model
         let params = TravelFeedMapper.getParameters(from: request)
         
         self.getRequest(type: TravelFeedResponse.self,
