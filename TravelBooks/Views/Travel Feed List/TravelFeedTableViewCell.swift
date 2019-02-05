@@ -44,7 +44,7 @@ class TravelFeedTableViewCell: UITableViewCell {
     // Holds reference back to the controller
     weak var delegate: TravelFeedTableViewCellDelegate?
     
-    // Inde
+    // Indexpath of this cell
     var indexPath: IndexPath?
     
     // This holds the cover imageView width according to the device size
