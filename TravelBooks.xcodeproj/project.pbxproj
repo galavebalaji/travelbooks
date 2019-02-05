@@ -53,6 +53,12 @@
 		F12705CD2204D960002C27D7 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CC2204D960002C27D7 /* Date+Extension.swift */; };
 		F12705D0220528A1002C27D7 /* TravelFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CE220528A1002C27D7 /* TravelFeedTableViewCell.swift */; };
 		F12705D1220528A1002C27D7 /* TravelFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */; };
+		F1534C50220987D1000F6E7B /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1534C4E220987D1000F6E7B /* BaseTestCase.swift */; };
+		F1534C51220987D1000F6E7B /* StubGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1534C4F220987D1000F6E7B /* StubGenerator.swift */; };
+		F1534C54220987D6000F6E7B /* FetchTravelFeedUsecaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1534C53220987D6000F6E7B /* FetchTravelFeedUsecaseTest.swift */; };
+		F1534C5722098938000F6E7B /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = F1534C5622098938000F6E7B /* feeds.json */; };
+		F1534C5A22098ABB000F6E7B /* FetchFeedListRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1534C5922098ABB000F6E7B /* FetchFeedListRepositoryStub.swift */; };
+		F1534C5C22098CCC000F6E7B /* FetchFeedListServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1534C5B22098CCC000F6E7B /* FetchFeedListServiceStub.swift */; };
 		F1A6263B220870FD007F7BB4 /* TravelBookTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6263A220870FD007F7BB4 /* TravelBookTokenManager.swift */; };
 		F1F8F20D2205BB58000F1DB4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */; };
 		F1F8F21A220697EE000F1DB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1F8F21C220697EE000F1DB4 /* Localizable.strings */; };
@@ -79,7 +85,7 @@
 /* Begin PBXFileReference section */
 		07DA68DF17BDCCDC08898FBD /* Pods_TravelBooks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelBooks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13EF25F56A540BE99A88D95F /* Pods-TravelBooksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelBooksTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelBooksTests/Pods-TravelBooksTests.release.xcconfig"; sourceTree = "<group>"; };
-		2112D309205F70A200288FD9 /* TravelBooks Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TravelBooks Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2112D309205F70A200288FD9 /* TravelBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2112D30C205F70A200288FD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2112D313205F70A200288FD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2112D316205F70A200288FD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -138,6 +144,12 @@
 		F12705CC2204D960002C27D7 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		F12705CE220528A1002C27D7 /* TravelFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedTableViewCell.swift; sourceTree = "<group>"; };
 		F12705CF220528A1002C27D7 /* TravelFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravelFeedTableViewCell.xib; sourceTree = "<group>"; };
+		F1534C4E220987D1000F6E7B /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
+		F1534C4F220987D1000F6E7B /* StubGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubGenerator.swift; sourceTree = "<group>"; };
+		F1534C53220987D6000F6E7B /* FetchTravelFeedUsecaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchTravelFeedUsecaseTest.swift; sourceTree = "<group>"; };
+		F1534C5622098938000F6E7B /* feeds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = feeds.json; sourceTree = "<group>"; };
+		F1534C5922098ABB000F6E7B /* FetchFeedListRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFeedListRepositoryStub.swift; sourceTree = "<group>"; };
+		F1534C5B22098CCC000F6E7B /* FetchFeedListServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFeedListServiceStub.swift; sourceTree = "<group>"; };
 		F1A6263A220870FD007F7BB4 /* TravelBookTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelBookTokenManager.swift; sourceTree = "<group>"; };
 		F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F1F8F218220697A8000F1DB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -190,7 +202,7 @@
 		2112D30A205F70A200288FD9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2112D309205F70A200288FD9 /* TravelBooks Debug.app */,
+				2112D309205F70A200288FD9 /* TravelBooks.app */,
 				2112D31D205F70A200288FD9 /* TravelBooksTests.xctest */,
 				2112D328205F70A200288FD9 /* TravelBooksUITests.xctest */,
 			);
@@ -207,9 +219,9 @@
 				F12705C72204C679002C27D7 /* Configurator */,
 				F12705B322048F66002C27D7 /* Usecase */,
 				F12705B522048FA7002C27D7 /* Repository */,
-				2128123C206B5C18003BB865 /* Extensions */,
-				2128123E206B5C18003BB865 /* Models */,
 				21281244206B5C18003BB865 /* Services */,
+				2128123E206B5C18003BB865 /* Models */,
+				2128123C206B5C18003BB865 /* Extensions */,
 			);
 			path = TravelBooks;
 			sourceTree = "<group>";
@@ -217,6 +229,8 @@
 		2112D320205F70A200288FD9 /* TravelBooksTests */ = {
 			isa = PBXGroup;
 			children = (
+				F1534C52220987D6000F6E7B /* TravelFeed List */,
+				F1534C4D220987D1000F6E7B /* TestUtils */,
 				2112D323205F70A200288FD9 /* Info.plist */,
 			);
 			path = TravelBooksTests;
@@ -453,6 +467,34 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		F1534C4D220987D1000F6E7B /* TestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				F1534C4E220987D1000F6E7B /* BaseTestCase.swift */,
+				F1534C4F220987D1000F6E7B /* StubGenerator.swift */,
+			);
+			path = TestUtils;
+			sourceTree = "<group>";
+		};
+		F1534C52220987D6000F6E7B /* TravelFeed List */ = {
+			isa = PBXGroup;
+			children = (
+				F1534C55220988F8000F6E7B /* Data */,
+				F1534C53220987D6000F6E7B /* FetchTravelFeedUsecaseTest.swift */,
+				F1534C5922098ABB000F6E7B /* FetchFeedListRepositoryStub.swift */,
+				F1534C5B22098CCC000F6E7B /* FetchFeedListServiceStub.swift */,
+			);
+			path = "TravelFeed List";
+			sourceTree = "<group>";
+		};
+		F1534C55220988F8000F6E7B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F1534C5622098938000F6E7B /* feeds.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		F1A62639220870DA007F7BB4 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,7 +532,7 @@
 			);
 			name = TravelBooks;
 			productName = "__PROJECT NAME__";
-			productReference = 2112D309205F70A200288FD9 /* TravelBooks Debug.app */;
+			productReference = 2112D309205F70A200288FD9 /* TravelBooks.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2112D31C205F70A200288FD9 /* TravelBooksTests */ = {
@@ -604,6 +646,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1534C5722098938000F6E7B /* feeds.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,6 +860,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1534C5A22098ABB000F6E7B /* FetchFeedListRepositoryStub.swift in Sources */,
+				F1534C54220987D6000F6E7B /* FetchTravelFeedUsecaseTest.swift in Sources */,
+				F1534C5C22098CCC000F6E7B /* FetchFeedListServiceStub.swift in Sources */,
+				F1534C50220987D1000F6E7B /* BaseTestCase.swift in Sources */,
+				F1534C51220987D1000F6E7B /* StubGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -994,7 +1042,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "info.mta.mymta-stage";
-				PRODUCT_NAME = "$(TARGET_NAME) $(CONFIGURATION)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Dev_StageMYmta;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1032,14 +1080,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "__PROJECT NAME__Tests/Info.plist";
+				INFOPLIST_FILE = TravelBooksTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "--BUNDLE-IDENTIFIER--Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/__PROJECT NAME__.app/__PROJECT NAME__";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TravelBooks.app/TravelBooks";
 			};
 			name = Debug;
 		};
@@ -1051,14 +1099,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "__PROJECT NAME__Tests/Info.plist";
+				INFOPLIST_FILE = TravelBooksTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "--BUNDLE-IDENTIFIER--Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/__PROJECT NAME__.app/__PROJECT NAME__";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TravelBooks.app/TravelBooks";
 			};
 			name = Release;
 		};
@@ -1165,7 +1213,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "info.mta.mymta-stage";
-				PRODUCT_NAME = "$(TARGET_NAME) $(CONFIGURATION)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = STAGING;
 				SWIFT_VERSION = 4.0;
@@ -1183,14 +1231,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "__PROJECT NAME__Tests/Info.plist";
+				INFOPLIST_FILE = TravelBooksTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "--BUNDLE-IDENTIFIER--Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/__PROJECT NAME__.app/__PROJECT NAME__";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TravelBooks.app/TravelBooks";
 			};
 			name = Staging;
 		};
