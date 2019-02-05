@@ -1,3 +1,6 @@
+//
+//  TravelFeedResponse.swift
+//  TravelBooks
 
 import Foundation
 
@@ -10,9 +13,9 @@ struct TravelFeedResponse: Codable {
 
 	enum CodingKeys: String, CodingKey {
 
-		case data = "data"
-		case included = "included"
-		case links = "links"
+		case data
+		case included
+		case links
 	}
 
 	init(from decoder: Decoder) throws {

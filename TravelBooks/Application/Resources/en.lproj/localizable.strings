@@ -5,4 +5,6 @@
 
 "BUTTON_TITLE_FRIENDS" = "Friends";
 "BUTTON_TITLE_COMMUNITY" = "Community";
+"BUTTON_TITLE_TRAVELBOOKS" = "TravelBooks";
+"LABEL_SORT_BY" = "Sort By";
 "LOADING_INDICATOR_TEXT" = "Loading";

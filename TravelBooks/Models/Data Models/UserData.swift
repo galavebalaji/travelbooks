@@ -10,8 +10,8 @@ struct UserData: Codable {
     
     enum CodingKeys: String, CodingKey {
         
-        case id = "id"
-        case type = "type"
+        case id
+        case type
     }
     
     init(from decoder: Decoder) throws {

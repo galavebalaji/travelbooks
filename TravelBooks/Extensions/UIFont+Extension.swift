@@ -5,7 +5,6 @@
 import Foundation
 import UIKit
 
-
 extension UIFont {
     
     // defines the custom font styles/sizes

@@ -1,3 +1,5 @@
+// Links.swift
+// TravelBook
 
 import Foundation
 
@@ -7,8 +9,8 @@ struct Links: Codable {
 
 	enum CodingKeys: String, CodingKey {
 
-		case next = "next"
-		case last = "last"
+		case next
+		case last
 	}
 
 	init(from decoder: Decoder) throws {
