@@ -47,7 +47,7 @@ class TravelFeedTableViewCell: UITableViewCell {
     // Inde
     var indexPath: IndexPath?
     
-    // This holds the cover imageView widht accoring to device size
+    // This holds the cover imageView widht according to the device size
     static var imageViewWidth: CGFloat = 0
     
     override func awakeFromNib() {
