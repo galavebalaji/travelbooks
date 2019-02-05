@@ -25,7 +25,12 @@ class TravelFeedListViewController: BaseViewController {
         }
     }
     
-    @IBOutlet private weak var labelSortBy: UILabel!
+    @IBOutlet private weak var labelSortBy: UILabel! {
+        didSet {
+            
+            labelSortBy.text = "LABEL_SORT_BY".localized
+        }
+    }
     
     // This holds both Friends and Community buttons together
     @IBOutlet private weak var stackViewOfButtons: UIStackView!
@@ -34,6 +39,7 @@ class TravelFeedListViewController: BaseViewController {
     @IBOutlet private weak var buttonTravelBooks: UIButton! {
         didSet {
             buttonTravelBooks.isEnabled = true
+            buttonTravelBooks.setTitle("BUTTON_TITLE_TRAVELBOOKS".localized, for: .normal)
         }
     }
     

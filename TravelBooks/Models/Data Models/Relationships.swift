@@ -7,8 +7,8 @@ struct Relationships: Codable {
 
 	enum CodingKeys: String, CodingKey {
 
-		case user = "user"
-		case destination = "destination"
+		case user
+		case destination
 	}
 
 	init(from decoder: Decoder) throws {

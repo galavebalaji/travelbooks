@@ -27,7 +27,10 @@ class Logger {
     
     class func log(message: String, messageType: LoggerMessageType, fileName: String = #file, lineNumber: Int = #line, function: String = #function) {
         #if DEBUG
-            print("\n\(Logger.dateFormatter.string(from: Date())) [\(messageType.rawValue)] [\(Logger.sourceFileName(filePath: fileName))]: \(lineNumber) -> \(message)")
+            var logString = Logger.dateFormatter.string(from: Date())
+            logString.append(" [" + messageType.rawValue + "]")
+            logString.append(" [" + Logger.sourceFileName(filePath: fileName) + "]")
+            print("\n\(logString): \(lineNumber) -> \(message)")
         #endif
     }
 }

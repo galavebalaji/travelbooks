@@ -9,10 +9,10 @@ struct DataResponse: Codable {
 
 	enum CodingKeys: String, CodingKey {
 
-		case id = "id"
-		case type = "type"
-		case attributes = "attributes"
-		case relationships = "relationships"
+		case id
+		case type
+		case attributes
+		case relationships
 	}
 
 	init(from decoder: Decoder) throws {

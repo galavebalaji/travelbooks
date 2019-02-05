@@ -1,3 +1,5 @@
+// Included.swift
+// TravelBook
 
 import Foundation
 
@@ -8,9 +10,9 @@ struct Included: Codable {
 
 	enum CodingKeys: String, CodingKey {
 
-		case id = "id"
-		case type = "type"
-		case attributes = "attributes"
+		case id
+		case type
+		case attributes
 	}
 
 	init(from decoder: Decoder) throws {
