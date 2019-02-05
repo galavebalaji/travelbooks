@@ -113,13 +113,19 @@ class TravelFeedListViewController: BaseViewController {
     
     // Setup left nav bar button
     private func setupSearchButton() {
-        let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "search_icon"), style: .plain, target: nil, action: nil)
+        let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "search_icon").withRenderingMode(.alwaysOriginal),
+                                           style: .plain,
+                                           target: nil,
+                                           action: nil)
         navigationItem.leftBarButtonItem = searchButton
     }
     
     // Setup right nav bar button
     private func setupSettingsButton() {
-        let settingsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "gear-purple"), style: .plain, target: nil, action: nil)
+        let settingsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "gear-white").withRenderingMode(.alwaysOriginal),
+                                             style: .plain,
+                                             target: nil,
+                                             action: nil)
         navigationItem.rightBarButtonItem = settingsButton
     }
     
