@@ -6,6 +6,7 @@ import Foundation
 
 typealias FetchFeedCompletion = (Result<[TravelFeedModel]>) -> Void
 
+// This is boundary protocol for the communication purpose
 protocol FetchTravelFeedUsecase {
     func fetchFeed(with request: TravelFeedRequest, completion: @escaping FetchFeedCompletion)
 }
@@ -17,6 +18,9 @@ class FetchTravelFeedUsecaseImpl: FetchTravelFeedUsecase {
     init(repository: FetchFeedListRepository) {
         self.repository = repository
     }
+    
+    // Usecase call repository to fetch the data
+    // then once usecase receives the data, it converts into UI model by calling mapper and returns to the Presenter with completion handler
     func fetchFeed(with request: TravelFeedRequest, completion: @escaping FetchFeedCompletion) {
         repository.fetchFeed(with: request) { result in
             
@@ -27,7 +31,6 @@ class FetchTravelFeedUsecaseImpl: FetchTravelFeedUsecase {
             case .failure(let error):
                 completion(.failure(error))
             }
-            
         }
     }
 }

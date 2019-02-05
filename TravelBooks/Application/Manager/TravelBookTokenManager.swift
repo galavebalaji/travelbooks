@@ -38,6 +38,7 @@ class TravelBookTokenManager {
         }
     }
     
+    // check method if we have accesstoken
     func hasAccessToken() -> Bool {
         if let token = self.accessToken {
             return !token.isEmpty
@@ -45,15 +46,21 @@ class TravelBookTokenManager {
         return false
     }
     
+    // get access token through shared instace
     func getAccessToken() -> String? {
         return accessToken
     }
     
+    // clear access token save in userdefaults
     func clearAccessToken() {
         accessToken = nil
     }
     
+    // start getting access token via simple POST method
+    // call this on shared instace
     func startAuthentication(completion: ((_ accessToken: String?, _ error: Error?) -> Void)?) {
+        
+        // Add parameters which are needed to get access token
         let parameters: [String: Any] = ["client_id": clientId,
                                          "client_secret": clientSecret,
                                          "grant_type": grantType,

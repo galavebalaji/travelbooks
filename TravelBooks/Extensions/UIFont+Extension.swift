@@ -5,12 +5,15 @@
 import Foundation
 import UIKit
 
+
 extension UIFont {
     
+    // defines the custom font styles/sizes
     enum MontserratFontWeight {
         case regular, black, bold, extraBold, hairline, light, semiBold, ultraLight
     }
     
+    // Defines the custom font types
     class func montserratFont(ofSize fontSize: CGFloat, weight: MontserratFontWeight) -> UIFont {
         
         var font: UIFont?

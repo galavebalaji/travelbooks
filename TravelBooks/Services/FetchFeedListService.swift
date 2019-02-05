@@ -8,6 +8,8 @@ protocol FetchFeedListService {
     func fetchFeed(with request: TravelFeedRequest, completion: @escaping TravelFeedsCompletion)
 }
 
+// This is to fetch feed list service
+// Calls to the BaseService method and sends back to the repository
 class FetchFeedListServiceImpl: BaseService, FetchFeedListService {
     
     func fetchFeed(with request: TravelFeedRequest, completion: @escaping TravelFeedsCompletion) {

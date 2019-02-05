@@ -6,6 +6,7 @@ import Foundation
 
 extension String {
     
+    // Converts the string to date format for specific date format in Feeds list response
     var toDate: Date? {
         
         let formatter = DateFormatter()
@@ -16,6 +17,7 @@ extension String {
         return nil
     }
     
+    // Localizes the givem
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }

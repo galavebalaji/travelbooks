@@ -18,12 +18,15 @@ extension Date {
         return current
     }
     
+    // Get Year componet only from give date
     var getYYYY: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy"
         return dateFormatter.string(from: self)
     }
     
+    // Get Month component as Three chars
+    // like 'Mar', 'Nov'
     var getMMM: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM"

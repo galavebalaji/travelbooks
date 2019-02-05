@@ -48,7 +48,6 @@
 		F12705C022049D34002C27D7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705BF22049D34002C27D7 /* Result.swift */; };
 		F12705C22204AE1A002C27D7 /* TravelFeedMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705C12204AE1A002C27D7 /* TravelFeedMapper.swift */; };
 		F12705C42204C0D8002C27D7 /* FeedAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705C32204C0D8002C27D7 /* FeedAttributes.swift */; };
-		F12705C62204C243002C27D7 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705C52204C243002C27D7 /* DateUtils.swift */; };
 		F12705C92204C6A5002C27D7 /* TravelFeedListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705C82204C6A5002C27D7 /* TravelFeedListConfigurator.swift */; };
 		F12705CB2204D6E7002C27D7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CA2204D6E7002C27D7 /* String+Extension.swift */; };
 		F12705CD2204D960002C27D7 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705CC2204D960002C27D7 /* Date+Extension.swift */; };
@@ -134,7 +133,6 @@
 		F12705BF22049D34002C27D7 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		F12705C12204AE1A002C27D7 /* TravelFeedMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedMapper.swift; sourceTree = "<group>"; };
 		F12705C32204C0D8002C27D7 /* FeedAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAttributes.swift; sourceTree = "<group>"; };
-		F12705C52204C243002C27D7 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		F12705C82204C6A5002C27D7 /* TravelFeedListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedListConfigurator.swift; sourceTree = "<group>"; };
 		F12705CA2204D6E7002C27D7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		F12705CC2204D960002C27D7 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 				F12705B522048FA7002C27D7 /* Repository */,
 				2128123C206B5C18003BB865 /* Extensions */,
 				2128123E206B5C18003BB865 /* Models */,
-				21281242206B5C18003BB865 /* Protocols */,
 				21281244206B5C18003BB865 /* Services */,
 			);
 			path = TravelBooks;
@@ -313,13 +310,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		21281242206B5C18003BB865 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		21281244206B5C18003BB865 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,7 +374,6 @@
 				F12705BF22049D34002C27D7 /* Result.swift */,
 				F12705B022048A8B002C27D7 /* Logger.swift */,
 				F127058822041A30002C27D7 /* ViewUtility.swift */,
-				F12705C52204C243002C27D7 /* DateUtils.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -392,11 +381,11 @@
 		F127059622046CF3002C27D7 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
+				F127059822046D60002C27D7 /* TravelFeedResponse.swift */,
 				F127059C22046D60002C27D7 /* Attributes.swift */,
 				F127059722046D60002C27D7 /* DataResponse.swift */,
 				F127059922046D60002C27D7 /* Destination.swift */,
 				F127059E22046D61002C27D7 /* Included.swift */,
-				F127059822046D60002C27D7 /* TravelFeedResponse.swift */,
 				F127059D22046D60002C27D7 /* Links.swift */,
 				F127059A22046D60002C27D7 /* Relationships.swift */,
 				F127059B22046D60002C27D7 /* User.swift */,
@@ -815,7 +804,6 @@
 				F12705B122048A8B002C27D7 /* Logger.swift in Sources */,
 				F12705A522046D61002C27D7 /* Links.swift in Sources */,
 				F12705832204184C002C27D7 /* Constant.swift in Sources */,
-				F12705C62204C243002C27D7 /* DateUtils.swift in Sources */,
 				F127059F22046D61002C27D7 /* DataResponse.swift in Sources */,
 				F1F8F21F2206E02E000F1DB4 /* UIView+Extension.swift in Sources */,
 				F1F8F20D2205BB58000F1DB4 /* CustomButton.swift in Sources */,

@@ -3,7 +3,13 @@
 
 import UIKit
 
+/*
+ This controller is responsible for displaying List of Travel Feed information
+ */
+
 class TravelFeedListViewController: BaseViewController {
+    
+    // MARK: IBOutlets
     
     @IBOutlet private weak var tableViewTravelFeed: UITableView! {
         didSet {
@@ -20,8 +26,11 @@ class TravelFeedListViewController: BaseViewController {
     }
     
     @IBOutlet private weak var labelSortBy: UILabel!
+    
+    // This holds both Friends and Community buttons together
     @IBOutlet private weak var stackViewOfButtons: UIStackView!
     
+    // this button expands/collapse views
     @IBOutlet private weak var buttonTravelBooks: UIButton! {
         didSet {
             buttonTravelBooks.isEnabled = true
@@ -50,12 +59,27 @@ class TravelFeedListViewController: BaseViewController {
     
     @IBOutlet private weak var constraintTableViewTop: NSLayoutConstraint!
     
+    // MARK: UI Elements
     private var refreshControl = UIRefreshControl()
+    
+    // MARK: All Variable
+    
+    // Presenter is responsible for getting data
     var presenter: TravelFeedListPresenterInput!
+    
+    // configures/instantiats  all with usercase service and all
     var configurator: TravelFeedListConfigurator?
+    
+    // This holds the type of sort by/filter you have selected. By default it holds friends type
     private var selectedButtonType: FeedFilterType = .friends
+    
+    // This keeps track of view expanded to show sort by filter view
     private var isExpandedFilterView = true
+    
+    // This tracks the page we loaded from pagination
     private var currentPage = 1
+    
+    // Store the height of particular cell against IndexPath, it reduces the calculating the height of cell everytime it reloads
     private var heightForRow: [IndexPath: CGFloat] = [:]
     
     override func viewDidLoad() {
@@ -64,7 +88,7 @@ class TravelFeedListViewController: BaseViewController {
         setupNavigationBar()
         configurator?.configure(travelFeedListViewController: self)
         presenter?.fetchFeedList(for: selectedButtonType, page: currentPage)
-         TravelFeedTableViewCell.imageViewWidth = tableViewTravelFeed.frame.width - (2 * Constant.Dimension.iOSPOINTS16)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,8 +98,12 @@ class TravelFeedListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // This helps to know what exact size of Cover imageview in the table view by substracting this leading and trailing depending on device size
+        TravelFeedTableViewCell.coverImageViewWidth = tableViewTravelFeed.frame.width -
+            (2 * Constant.Dimension.iOSPOINTS16)
     }
     
+    // Setup NavigationBar and its color
     private func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.isTranslucent = false
@@ -86,16 +114,19 @@ class TravelFeedListViewController: BaseViewController {
         setupSettingsButton()
     }
     
+    // Setup left nav bar button
     private func setupSearchButton() {
         let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "search_icon"), style: .plain, target: nil, action: nil)
         navigationItem.leftBarButtonItem = searchButton
     }
     
+    // Setup right nav bar button
     private func setupSettingsButton() {
         let settingsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "gear-purple"), style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = settingsButton
     }
     
+    // adds refresh view control to the tablview
     private func addRefreshControl() {
         refreshControl = UIRefreshControl()
         if #available(iOS 10.0, *) {
@@ -132,19 +163,25 @@ class TravelFeedListViewController: BaseViewController {
         tappedButton(with: selectedButtonType)
     }
     
+    // Hides and shows sort by view with animation
     private func hideStackViewElements(shouldHide: Bool) {
+        
         isExpandedFilterView = !shouldHide
+        
         UIView.animate(withDuration: 0.25) {
             self.labelSortBy.isHidden = shouldHide
             self.stackViewOfButtons.isHidden = shouldHide
-            //self.buttonTravelBooks.isEnabled = shouldHide
             self.constraintTableViewTop.constant = shouldHide ?
                 Constant.Dimension.iOSPOINTS0 : Constant.Dimension.iOSPOINTS20
+            
+            // Rotate image up and down arrow
             let angle = shouldHide ? (Double.pi / 2) : (-Double.pi / 2)
             self.imageViewArrow.transform = CGAffineTransform(rotationAngle: CGFloat(angle))
         }
     }
     
+    // This access lasted data for selected sort by type for first page
+    // changes the friends and community button design
     private func tappedButton(with type: FeedFilterType) {
         currentPage = 1
         presenter.resetTravelFeedList()
@@ -161,9 +198,15 @@ class TravelFeedListViewController: BaseViewController {
     
 }
 
+// MARK: UITableViewDelegate and UITableViewDataSource methods
+
 extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        // This helps to know what exact size of Cover imageview in the table view by substracting this leading and trailing depending on device size
+        TravelFeedTableViewCell.coverImageViewWidth = tableViewTravelFeed.frame.width -
+            (2 * Constant.Dimension.iOSPOINTS16)
+        
         return 1
     }
     
@@ -196,11 +239,12 @@ extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
+        // Configure next cells to display
         if let model = presenter?.travelModel(for: indexPath.row),
             let travelFeedBackCell = cell as? TravelFeedTableViewCell {
             travelFeedBackCell.configureCell(with: model)
         }
-        
+        // Keeps track of last cells and calls API for getting data of next page
         if indexPath.row == presenter.numberOfFeeds - 2, presenter.hasMoreFeeds {
             currentPage += 1
             presenter.fetchFeedList(for: selectedButtonType, page: currentPage)
@@ -209,10 +253,13 @@ extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSour
     
 }
 
+// MARK: UITableViewDataSourcePrefetching methods
+
 extension TravelFeedListViewController: UITableViewDataSourcePrefetching {
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         
+        // Fetch the next images and get ready to display once user scrolls ups and down
         for indexPath in indexPaths {
             if let model = presenter.travelModel(for: indexPath.row),
                 let urlCoverImageString = model.urlCoverImage {
@@ -228,18 +275,28 @@ extension TravelFeedListViewController: UITableViewDataSourcePrefetching {
     
 }
 
+// MARK: TravelFeedListPresenterOutput methods
+
 extension TravelFeedListViewController: TravelFeedListPresenterOutput {
     
     func reloadData() {
+        // Reloads the table view data
         tableViewTravelFeed.reloadData()
+        
+        // Once you select another category and data gets fetched from it
+        // so scroll up to the first cell to show data for new sort type that you selected
         if currentPage == 1, presenter.numberOfFeeds > 0 {
             tableViewTravelFeed.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
     }
 }
 
+// MARK: TravelFeedTableViewCellDelegate methods
+
 extension TravelFeedListViewController: TravelFeedTableViewCellDelegate {
     
+    // reloas rows at perticular index and save the height for indexPath for future use
+    // if we already have height then dont need to reload the cell
     func reloadRow(at indexPath: IndexPath, height: CGFloat) {
         if heightForRow[indexPath] == nil {
             heightForRow[indexPath] = height
@@ -251,6 +308,7 @@ extension TravelFeedListViewController: TravelFeedTableViewCellDelegate {
         }
     }
     
+    // Stops pull to refresh indicator once we get a data
     func stopPullToRefreshIndicator() {
         DispatchQueue.main.async { [weak self] in
             guard self?.refreshControl.isRefreshing ?? false else {
@@ -260,6 +318,7 @@ extension TravelFeedListViewController: TravelFeedTableViewCellDelegate {
         }
     }
     
+    // Show and hide the activity indicator
     func showLoader(shouldShow: Bool) {
         guard !refreshControl.isRefreshing else { return }
         DispatchQueue.main.async { [weak self] in
