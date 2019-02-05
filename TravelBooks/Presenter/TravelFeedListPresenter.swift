@@ -57,14 +57,20 @@ class TravelFeedListPresenter: TravelFeedListPresenterInput {
         // Call Usecse asynchronously to fetch the data
         fetchTravelFeedUsecase.fetchFeed(with: TravelFeedRequest(feedFilterType: .community,
                                                                  page: page)) { [weak self] result in
+                                                                    
             self?.travelFeedListPresenterOutput?.showLoader(shouldShow: false)
+                       
             switch result {
+                
             case .success(let newFeeds):
                 Logger.log(message: " All fetched feeds = \(newFeeds.count)", messageType: .debug)
                 if page == 1 {
+                    
                     self?.travelFeedListPresenterOutput?.stopPullToRefreshIndicator()
                     self?.travelFeedList = newFeeds
+                    
                 } else {
+                    
                     self?.travelFeedList.append(contentsOf: newFeeds)
                 }
                 
@@ -74,6 +80,7 @@ class TravelFeedListPresenter: TravelFeedListPresenterInput {
                 if page == 1 {
                     self?.travelFeedListPresenterOutput?.stopPullToRefreshIndicator()
                 }
+                
             }
         }
     }
