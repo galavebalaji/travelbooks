@@ -89,16 +89,9 @@ class TravelFeedTableViewCell: UITableViewCell {
     
     // Sets username and date
     private func setUserNameAndDate(with model: TravelFeedModel) {
-        var userName = ""
-        if let firstName = model.userInformation?.userFirstName {
-            userName.append(firstName)
-        }
         
-        if let lastName = model.userInformation?.userLastName {
-            userName.append(" " + lastName)
-        }
-        
-        labelUserName.text = userName
+        labelUserName.text = [model.userInformation?.userFirstName,
+                              model.userInformation?.userLastName].compactMap { $0 }.joined(separator: " ")
         
         if let date = model.publishedDate {
             labelDate.text = "\(date.getMMM.uppercased())\n\(date.getYYYY)"
