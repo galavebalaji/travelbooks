@@ -4,6 +4,8 @@
 import Foundation
 import Alamofire
 
+typealias APIResult = Result
+
 /*
  All API request shall go through this service
  This is just a bottleneck for all API requests in a App
