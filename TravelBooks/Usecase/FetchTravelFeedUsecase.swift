@@ -4,7 +4,7 @@
 
 import Foundation
 
-typealias FetchFeedCompletion = (Result<[TravelFeedModel]>) -> Void
+typealias FetchFeedCompletion = (APIResult<[TravelFeedModel]>) -> Void
 
 // This is boundary protocol for the communication purpose
 protocol FetchTravelFeedUsecase {

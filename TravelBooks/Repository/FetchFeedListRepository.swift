@@ -5,7 +5,7 @@
 import Foundation
 
 // type alias to hold the type and reusability
-typealias TravelFeedsCompletion = (Result<TravelFeedResponse>) -> Void
+typealias TravelFeedsCompletion = (APIResult<TravelFeedResponse>) -> Void
 
 // This is boundary protocol for the communication purpose
 protocol FetchFeedListRepository {

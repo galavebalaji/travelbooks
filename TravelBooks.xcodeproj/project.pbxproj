@@ -45,7 +45,6 @@
 		F12705B922049030002C27D7 /* FetchTravelFeedUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705B822049030002C27D7 /* FetchTravelFeedUsecase.swift */; };
 		F12705BB22049070002C27D7 /* FetchFeedListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705BA22049070002C27D7 /* FetchFeedListRepository.swift */; };
 		F12705BD2204912B002C27D7 /* FetchFeedListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705BC2204912B002C27D7 /* FetchFeedListService.swift */; };
-		F12705C022049D34002C27D7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705BF22049D34002C27D7 /* Result.swift */; };
 		F12705C22204AE1A002C27D7 /* TravelFeedMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705C12204AE1A002C27D7 /* TravelFeedMapper.swift */; };
 		F12705C42204C0D8002C27D7 /* FeedAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705C32204C0D8002C27D7 /* FeedAttributes.swift */; };
 		F12705C92204C6A5002C27D7 /* TravelFeedListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705C82204C6A5002C27D7 /* TravelFeedListConfigurator.swift */; };
@@ -136,7 +135,6 @@
 		F12705B822049030002C27D7 /* FetchTravelFeedUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTravelFeedUsecase.swift; sourceTree = "<group>"; };
 		F12705BA22049070002C27D7 /* FetchFeedListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFeedListRepository.swift; sourceTree = "<group>"; };
 		F12705BC2204912B002C27D7 /* FetchFeedListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFeedListService.swift; sourceTree = "<group>"; };
-		F12705BF22049D34002C27D7 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		F12705C12204AE1A002C27D7 /* TravelFeedMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedMapper.swift; sourceTree = "<group>"; };
 		F12705C32204C0D8002C27D7 /* FeedAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAttributes.swift; sourceTree = "<group>"; };
 		F12705C82204C6A5002C27D7 /* TravelFeedListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedListConfigurator.swift; sourceTree = "<group>"; };
@@ -385,7 +383,6 @@
 		F127058722041A18002C27D7 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				F12705BF22049D34002C27D7 /* Result.swift */,
 				F12705B022048A8B002C27D7 /* Logger.swift */,
 				F127058822041A30002C27D7 /* ViewUtility.swift */,
 			);
@@ -828,7 +825,6 @@
 				F12705A122046D61002C27D7 /* Destination.swift in Sources */,
 				F12705A222046D61002C27D7 /* Relationships.swift in Sources */,
 				F12705A022046D61002C27D7 /* TravelFeedResponse.swift in Sources */,
-				F12705C022049D34002C27D7 /* Result.swift in Sources */,
 				21281249206B5C18003BB865 /* TravelFeedListViewController.swift in Sources */,
 				F12705BB22049070002C27D7 /* FetchFeedListRepository.swift in Sources */,
 				F12705B722049000002C27D7 /* TravelFeedListPresenter.swift in Sources */,

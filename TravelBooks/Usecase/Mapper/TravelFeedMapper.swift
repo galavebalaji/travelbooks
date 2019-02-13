@@ -15,14 +15,16 @@ struct TravelFeedMapper {
         
         var travelFeedModel = [TravelFeedModel]()
         
-        if let allFeeds = response.data, !allFeeds.isEmpty,
-            let allUsersOrPlaces = response.included,
+        let allUsersOrPlaces = response.included
+        let allFeeds = response.data
+        
+        if !allFeeds.isEmpty,
             !allUsersOrPlaces.isEmpty {
             
             let userIncludes = allUsersOrPlaces.filter { $0.type == "users" }
             
             for feed in allFeeds {
-                if let userId = feed.relationships?.user?.userData?.id,
+                if let userId = feed.relationships?.user?.data?.id,
                     let userInfo = getUserInformation(for: userId, from: userIncludes) {
                     let date = feed.attributes?.publishedAt?.toDate
                     travelFeedModel.append(TravelFeedModel(userInformation: userInfo,
@@ -42,10 +44,7 @@ struct TravelFeedMapper {
         }
         
         let userInclude = includes.first { include -> Bool in
-            if let id = include.id {
-                return id == userId
-            }
-            return false
+                return include.id == userId
         }
         
         if let user = userInclude {

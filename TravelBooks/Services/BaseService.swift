@@ -4,6 +4,8 @@
 import Foundation
 import Alamofire
 
+typealias APIResult = Result
+
 /*
  All API request shall go through this service
  This is just a bottleneck for all API requests in a App
@@ -97,6 +99,7 @@ class BaseService: SessionDelegate {
                     }
                     
                     let jsonDecoder = JSONDecoder()
+                    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
                     let responseModel = try jsonDecoder.decode(T.self, from: data)
                     
                     completion(responseModel, responseJson.result.value, responseJson.result.error, data)

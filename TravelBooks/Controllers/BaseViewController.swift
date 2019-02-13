@@ -24,13 +24,13 @@ class BaseViewController: UIViewController {
         let loadingIndicatorWidth: CGFloat = 80
         let xOrigin: CGFloat = (xOffset > 0) ? xOffset : (self.view.frame.width - 80) / 2
         let yOrigin: CGFloat = (yOffset > 0) ? yOffset : (self.view.frame.height - 80) / 2
-        let boxView = UIView(frame: CGRect(x: xOrigin,
+        loadingIndicatorView = UIView(frame: CGRect(x: xOrigin,
                                            y: yOrigin,
                                            width: loadingIndicatorWidth,
                                            height: loadingIndicatorHeight))
-        boxView.backgroundColor = UIColor.black
-        boxView.alpha = 0.9
-        boxView.layer.cornerRadius = 10
+        loadingIndicatorView?.backgroundColor = UIColor.black
+        loadingIndicatorView?.alpha = 0.9
+        loadingIndicatorView?.layer.cornerRadius = 10
         print(self.view.frame.height)
         // Spin config:
         let activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
@@ -45,17 +45,18 @@ class BaseViewController: UIViewController {
         textLabel.text = NSLocalizedString("LOADING_INDICATOR_TEXT", comment: "") + "..."
         
         // Activate:
-        boxView.addSubview(activityView)
-        boxView.addSubview(textLabel)
+        loadingIndicatorView?.addSubview(activityView)
+        loadingIndicatorView?.addSubview(textLabel)
         
-        loadingIndicatorView = boxView
-        self.view.addSubview(boxView)
-        isShowingLoder = true
-        //UIApplication.shared.beginIgnoringInteractionEvents()
+        if let view = loadingIndicatorView {
+            self.view.addSubview(view)
+            isShowingLoder = true
+        }
+        
     }
     
     func hideActivityIndicator() {
-        loadingIndicatorView?.isHidden = true
+        loadingIndicatorView?.removeFromSuperview()
         isShowingLoder = false
     }
 
