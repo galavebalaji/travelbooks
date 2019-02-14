@@ -14,6 +14,7 @@
 		57FCEA747F3880EC73ABAEAA /* Pods_TravelBooks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DA68DF17BDCCDC08898FBD /* Pods_TravelBooks.framework */; };
 		5D64C24591A87E1FC97C5A5D /* Pods_TravelBooksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57626D01B019415982C65715 /* Pods_TravelBooksUITests.framework */; };
 		B0F4A0622043A18054118295 /* Pods_TravelBooksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0977C0903D95D29792E955F /* Pods_TravelBooksTests.framework */; };
+		F11DCDA02215A605006AA5CE /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11DCD9F2215A605006AA5CE /* KeychainManager.swift */; };
 		F127057022032C60002C27D7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127056F22032C60002C27D7 /* BaseViewController.swift */; };
 		F127057A2204059B002C27D7 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F127057922040512002C27D7 /* Montserrat-Black.otf */; };
 		F127057B2204059B002C27D7 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F127057422040512002C27D7 /* Montserrat-Bold.ttf */; };
@@ -102,6 +103,7 @@
 		D185E215765F51F1A2DF7DFB /* Pods-TravelBooksTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelBooksTests.staging.xcconfig"; path = "Pods/Target Support Files/Pods-TravelBooksTests/Pods-TravelBooksTests.staging.xcconfig"; sourceTree = "<group>"; };
 		E0977C0903D95D29792E955F /* Pods_TravelBooksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelBooksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E881D71339B9D8191BFCBA25 /* Pods-TravelBooksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelBooksUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelBooksUITests/Pods-TravelBooksUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F11DCD9F2215A605006AA5CE /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		F127056F22032C60002C27D7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F127057222040512002C27D7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		F127057322040512002C27D7 /* Montserrat-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 		F1A62639220870DA007F7BB4 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				F11DCD9F2215A605006AA5CE /* KeychainManager.swift */,
 				F1A6263A220870FD007F7BB4 /* TravelBookTokenManager.swift */,
 			);
 			path = Manager;
@@ -828,6 +831,7 @@
 				F12705B122048A8B002C27D7 /* Logger.swift in Sources */,
 				F12705A522046D61002C27D7 /* Links.swift in Sources */,
 				F12705832204184C002C27D7 /* Constant.swift in Sources */,
+				F11DCDA02215A605006AA5CE /* KeychainManager.swift in Sources */,
 				F127059F22046D61002C27D7 /* DataResponse.swift in Sources */,
 				F1F8F21F2206E02E000F1DB4 /* UIView+Extension.swift in Sources */,
 				F1F8F20D2205BB58000F1DB4 /* CustomButton.swift in Sources */,
