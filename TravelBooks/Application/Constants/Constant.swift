@@ -25,15 +25,12 @@ struct APIUrlsConstant {
 
 // MARK: Constants
 struct Constant {
+    
+    static let safeAreaDistance: CGFloat = 16
+    
     struct TravelFeedListConstants {
         static let travelFeedTableCellId = "TravelFeedTableViewCellId"
         static let travelFeedTableCellName = "TravelFeedTableViewCell"
     }
     
-    struct Dimension {
-        static let iOSPOINTS0: CGFloat = 0
-        static let iOSPOINTS20: CGFloat = 20
-        static let iOSPOINTS8: CGFloat = 8
-        static let iOSPOINTS16: CGFloat = 16
-    }
 }

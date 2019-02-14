@@ -181,7 +181,7 @@ class TravelFeedListViewController: BaseViewController {
             self.labelSortBy.isHidden = shouldHide
             self.stackViewOfButtons.isHidden = shouldHide
             self.constraintTableViewTop.constant = shouldHide ?
-                Constant.Dimension.iOSPOINTS0 : Constant.Dimension.iOSPOINTS20
+                0 : 20
             
             // Rotate image up and down arrow
             let angle = shouldHide ? (Double.pi / 2) : (-Double.pi / 2)
@@ -215,7 +215,7 @@ extension TravelFeedListViewController: UITableViewDelegate, UITableViewDataSour
         
         // This helps to know what exact size of Cover imageview in the table view by substracting this leading and trailing depending on device size
         TravelFeedTableViewCell.coverImageViewWidth = tableViewTravelFeed.frame.width -
-            (2 * Constant.Dimension.iOSPOINTS16)
+            (2 * Constant.safeAreaDistance)
         
         return 1
     }
