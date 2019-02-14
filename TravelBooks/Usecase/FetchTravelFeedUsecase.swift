@@ -13,16 +13,16 @@ protocol FetchTravelFeedUsecase {
 
 class FetchTravelFeedUsecaseImpl: FetchTravelFeedUsecase {
     
-    private let repository: FetchFeedListRepository
+    private let service: FetchFeedListService
     
-    init(repository: FetchFeedListRepository) {
-        self.repository = repository
+    init(service: FetchFeedListService) {
+        self.service = service
     }
     
     // Usecase call repository to fetch the data
     // then once usecase receives the data, it converts into UI model by calling mapper and returns to the Presenter with completion handler
     func fetchFeed(with request: TravelFeedRequest, completion: @escaping FetchFeedCompletion) {
-        repository.fetchFeed(with: request) { result in
+        service.fetchFeed(with: request) { result in
             
             switch result {
             case .success(let travelResponse):

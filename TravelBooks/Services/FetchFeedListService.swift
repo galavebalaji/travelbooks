@@ -4,6 +4,8 @@
 
 import Foundation
 
+typealias TravelFeedsCompletion = (APIResult<TravelFeedResponse>) -> Void
+
 protocol FetchFeedListService {
     func fetchFeed(with request: TravelFeedRequest, completion: @escaping TravelFeedsCompletion)
 }

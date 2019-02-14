@@ -23,9 +23,8 @@ class FetchTravelFeedUsecaseTest: BaseTestCase {
     override func configure() {
         super.configure()
         
-        let service = FetchFeedListServiceImpl()
-        let repository = FetchFeedListRepositoryImpl(service: service)
-        fetchTravelFeedUsecase = FetchTravelFeedUsecaseImpl(repository: repository)
+        let service = FetchFeedListServiceStub()
+        fetchTravelFeedUsecase = FetchTravelFeedUsecaseImpl(service: service)
     }
     
     func testFetchFeedListCount() {
