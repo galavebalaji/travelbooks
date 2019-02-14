@@ -15,6 +15,7 @@ class FetchFeedListServiceStub: FetchFeedListService {
             
             if let data = generator.getFeedData() {
                 let jsonDecoder = JSONDecoder()
+                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
                 let responseModel = try jsonDecoder.decode(TravelFeedResponse.self, from: data)
                 completion(.success(responseModel))
             }

@@ -20,7 +20,13 @@ class BaseService: SessionDelegate {
     // defines data request
     private var dataRequest: DataRequest?
     
-    private let accessTokenKey = "access_token"
+    typealias ResponseCompletion<T: Decodable> = (T?, _ error: Error?, _ data: Data?) -> Void
+    
+    private var clientId = "3bb0640f3232379a9e07c0c44f9ef5e764eefb9ba0e1d31168a90ecebe2bc67d"
+    private var clientSecret = "073177b5f4f3489d46921c62629a42aa7b2bbdf57fc578bf2c61917957d037cc"
+    private var grantType = "password"
+    private var userEmailId = "olivier@nimbl3.com"
+    private var password = "12345678"
     
     override init() {
         super.init()
@@ -28,57 +34,24 @@ class BaseService: SessionDelegate {
         let configuration = URLSessionConfiguration.default
         configuration.requestCachePolicy = .reloadIgnoringCacheData
         requestManager = SessionManager(configuration: configuration, delegate: self, serverTrustPolicyManager: nil)
-    }
-    
-    // Each inherited service should call this method for GET method only
-    // This check if this service needs a accessToken and based on that it fetches
-    func getRequest<T: Decodable>(type model: T.Type,
-                                  isNeededAccessToken: Bool,
-                                  url: URL,
-                                  parameters: [String: Any]?,
-                                  headers: [String: String]? = nil,
-                                  completion:@escaping (T?, _ json: Any?, _ error: Error?, _ data: Data?) -> Void) {
-        // if access token needed for this url then first get and load the request
-        if isNeededAccessToken {
-            // check if access token is there, else fetch it from OAuth
-            if TravelBookTokenManager.shared.hasAccessToken(),
-                let token = TravelBookTokenManager.shared.getAccessToken() {
-                
-                var params = parameters
-                params?[accessTokenKey] = token
-                
-                loadData(type: T.self, url: url, parameters: params, headers: headers, completion: completion)
-                
-            } else {
-                // start process of getting access token
-                TravelBookTokenManager.shared.startAuthentication { [weak self] accessToken, error in
-                    
-                    if let token = accessToken, error == nil {
-                        
-                        var params = parameters
-                        params?[self?.accessTokenKey ?? ""] = token
-                        
-                        self?.loadData(type: T.self,
-                                       url: url,
-                                       parameters: params,
-                                       headers: headers,
-                                       completion: completion)
-                    } else {
-                        completion(nil, nil, error, nil)
-                    }
-                }
-            }
-        } else {
-            loadData(type: T.self, url: url, parameters: parameters, headers: headers, completion: completion)
-        }
+        
+        // Configure Auth handler to retry requests automatically if token was expired/empty
+        let oauthHandler = TravelBookTokenManager.OAuth2Handler(clientID: clientId,
+                                                                clientSecret: clientSecret,
+                                                                userEmailId: userEmailId,
+                                                                password: password,
+                                                                baseURLString: APIUrlsConstant.baseUrlAndApiVersion)
+        requestManager?.adapter = oauthHandler
+        requestManager?.retrier = oauthHandler
     }
     
     // loads data from URL
-    final private func loadData<T: Decodable>(type model: T.Type,
-                                              url: URL,
-                                              parameters: [String: Any]?,
-                                              headers: [String: String]? = nil,
-                                              completion:@escaping (T?, _ json: Any?, _ error: Error?, _ data: Data?) -> Void) {
+    final func loadData<T: Decodable>(type model: T.Type,
+                                      url: URL,
+                                      method: HTTPMethod,
+                                      parameters: [String: Any]?,
+                                      headers: [String: String]? = nil,
+                                      completion:@escaping ResponseCompletion<T>) {
         
         dataRequest = requestManager?.request(url, method: .get, parameters: parameters, headers: headers)
             .validate()
@@ -90,7 +63,7 @@ class BaseService: SessionDelegate {
                     guard let data = responseJson.data, responseJson.result.error == nil
                         else {
                             Logger.log(message: "Error", messageType: .error)
-                            completion(nil, nil, responseJson.result.error, nil)
+                            completion(nil, responseJson.result.error, nil)
                             return
                     }
                     
@@ -102,11 +75,11 @@ class BaseService: SessionDelegate {
                     jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
                     let responseModel = try jsonDecoder.decode(T.self, from: data)
                     
-                    completion(responseModel, responseJson.result.value, responseJson.result.error, data)
+                    completion(responseModel, nil, data)
                     
-                }catch let error {
+                } catch let error {
                     Logger.log(message: error.localizedDescription, messageType: .error)
-                    completion(nil, error as NSError, nil, nil)
+                    completion(nil, error as NSError, nil)
                 }
         }
     }

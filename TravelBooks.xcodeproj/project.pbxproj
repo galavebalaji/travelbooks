@@ -43,7 +43,6 @@
 		F12705B122048A8B002C27D7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705B022048A8B002C27D7 /* Logger.swift */; };
 		F12705B722049000002C27D7 /* TravelFeedListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705B622049000002C27D7 /* TravelFeedListPresenter.swift */; };
 		F12705B922049030002C27D7 /* FetchTravelFeedUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705B822049030002C27D7 /* FetchTravelFeedUsecase.swift */; };
-		F12705BB22049070002C27D7 /* FetchFeedListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705BA22049070002C27D7 /* FetchFeedListRepository.swift */; };
 		F12705BD2204912B002C27D7 /* FetchFeedListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705BC2204912B002C27D7 /* FetchFeedListService.swift */; };
 		F12705C22204AE1A002C27D7 /* TravelFeedMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705C12204AE1A002C27D7 /* TravelFeedMapper.swift */; };
 		F12705C42204C0D8002C27D7 /* FeedAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12705C32204C0D8002C27D7 /* FeedAttributes.swift */; };
@@ -56,7 +55,6 @@
 		F1534C51220987D1000F6E7B /* StubGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1534C4F220987D1000F6E7B /* StubGenerator.swift */; };
 		F1534C54220987D6000F6E7B /* FetchTravelFeedUsecaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1534C53220987D6000F6E7B /* FetchTravelFeedUsecaseTest.swift */; };
 		F1534C5722098938000F6E7B /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = F1534C5622098938000F6E7B /* feeds.json */; };
-		F1534C5A22098ABB000F6E7B /* FetchFeedListRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1534C5922098ABB000F6E7B /* FetchFeedListRepositoryStub.swift */; };
 		F1534C5C22098CCC000F6E7B /* FetchFeedListServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1534C5B22098CCC000F6E7B /* FetchFeedListServiceStub.swift */; };
 		F1A6263B220870FD007F7BB4 /* TravelBookTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6263A220870FD007F7BB4 /* TravelBookTokenManager.swift */; };
 		F1F8F20D2205BB58000F1DB4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */; };
@@ -133,7 +131,6 @@
 		F12705B022048A8B002C27D7 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F12705B622049000002C27D7 /* TravelFeedListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedListPresenter.swift; sourceTree = "<group>"; };
 		F12705B822049030002C27D7 /* FetchTravelFeedUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTravelFeedUsecase.swift; sourceTree = "<group>"; };
-		F12705BA22049070002C27D7 /* FetchFeedListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFeedListRepository.swift; sourceTree = "<group>"; };
 		F12705BC2204912B002C27D7 /* FetchFeedListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFeedListService.swift; sourceTree = "<group>"; };
 		F12705C12204AE1A002C27D7 /* TravelFeedMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelFeedMapper.swift; sourceTree = "<group>"; };
 		F12705C32204C0D8002C27D7 /* FeedAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAttributes.swift; sourceTree = "<group>"; };
@@ -146,7 +143,6 @@
 		F1534C4F220987D1000F6E7B /* StubGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubGenerator.swift; sourceTree = "<group>"; };
 		F1534C53220987D6000F6E7B /* FetchTravelFeedUsecaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchTravelFeedUsecaseTest.swift; sourceTree = "<group>"; };
 		F1534C5622098938000F6E7B /* feeds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = feeds.json; sourceTree = "<group>"; };
-		F1534C5922098ABB000F6E7B /* FetchFeedListRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFeedListRepositoryStub.swift; sourceTree = "<group>"; };
 		F1534C5B22098CCC000F6E7B /* FetchFeedListServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFeedListServiceStub.swift; sourceTree = "<group>"; };
 		F1A6263A220870FD007F7BB4 /* TravelBookTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelBookTokenManager.swift; sourceTree = "<group>"; };
 		F1F8F20C2205BB58000F1DB4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -211,12 +207,10 @@
 			isa = PBXGroup;
 			children = (
 				2112D346205F720E00288FD9 /* Application */,
-				2128123A206B5C18003BB865 /* Views */,
 				21281240206B5C18003BB865 /* Controllers */,
 				F12705B222048F50002C27D7 /* Presenter */,
 				F12705C72204C679002C27D7 /* Configurator */,
 				F12705B322048F66002C27D7 /* Usecase */,
-				F12705B522048FA7002C27D7 /* Repository */,
 				21281244206B5C18003BB865 /* Services */,
 				2128123E206B5C18003BB865 /* Models */,
 				2128123C206B5C18003BB865 /* Extensions */,
@@ -315,6 +309,7 @@
 		21281240206B5C18003BB865 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2128123A206B5C18003BB865 /* Views */,
 				F1270584220419D7002C27D7 /* StoryBoard */,
 				21281241206B5C18003BB865 /* TravelFeedListViewController.swift */,
 				F127056F22032C60002C27D7 /* BaseViewController.swift */,
@@ -432,14 +427,6 @@
 			path = Usecase;
 			sourceTree = "<group>";
 		};
-		F12705B522048FA7002C27D7 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				F12705BA22049070002C27D7 /* FetchFeedListRepository.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
 		F12705BE22049142002C27D7 /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,7 +465,6 @@
 			children = (
 				F1534C55220988F8000F6E7B /* Data */,
 				F1534C53220987D6000F6E7B /* FetchTravelFeedUsecaseTest.swift */,
-				F1534C5922098ABB000F6E7B /* FetchFeedListRepositoryStub.swift */,
 				F1534C5B22098CCC000F6E7B /* FetchFeedListServiceStub.swift */,
 			);
 			path = "TravelFeed List";
@@ -826,7 +812,6 @@
 				F12705A222046D61002C27D7 /* Relationships.swift in Sources */,
 				F12705A022046D61002C27D7 /* TravelFeedResponse.swift in Sources */,
 				21281249206B5C18003BB865 /* TravelFeedListViewController.swift in Sources */,
-				F12705BB22049070002C27D7 /* FetchFeedListRepository.swift in Sources */,
 				F12705B722049000002C27D7 /* TravelFeedListPresenter.swift in Sources */,
 				F127058922041A30002C27D7 /* ViewUtility.swift in Sources */,
 				F12705CD2204D960002C27D7 /* Date+Extension.swift in Sources */,
@@ -856,7 +841,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1534C5A22098ABB000F6E7B /* FetchFeedListRepositoryStub.swift in Sources */,
 				F1534C54220987D6000F6E7B /* FetchTravelFeedUsecaseTest.swift in Sources */,
 				F1534C5C22098CCC000F6E7B /* FetchFeedListServiceStub.swift in Sources */,
 				F1534C50220987D1000F6E7B /* BaseTestCase.swift in Sources */,

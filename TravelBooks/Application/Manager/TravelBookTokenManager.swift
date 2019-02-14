@@ -9,12 +9,6 @@ class TravelBookTokenManager {
     
     // shared instance to work this class across the app
     static let shared = TravelBookTokenManager()
-    // Client id and client secret
-    private var clientId = "3bb0640f3232379a9e07c0c44f9ef5e764eefb9ba0e1d31168a90ecebe2bc67d"
-    private var clientSecret = "073177b5f4f3489d46921c62629a42aa7b2bbdf57fc578bf2c61917957d037cc"
-    private var grantType = "password"
-    private var userEmailId = "olivier@nimbl3.com"
-    private var password = "12345678"
     
     // Avoid making an instance of this class from outside and to keep it Singleton claas
     private init() {
@@ -56,39 +50,125 @@ class TravelBookTokenManager {
         accessToken = nil
     }
     
-    // start getting access token via simple POST method
-    // call this on shared instace
-    func startAuthentication(completion: ((_ accessToken: String?, _ error: Error?) -> Void)?) {
+    private func setAccessToken(token: String) {
+        accessToken = token
+    }
+}
+
+extension TravelBookTokenManager {
+    
+    private typealias RefreshCompletion = (_ succeeded: Bool, _ accessToken: String?) -> Void
+    
+    class OAuth2Handler: RequestAdapter, RequestRetrier {
         
-        // Add parameters which are needed to get access token
-        let parameters: [String: Any] = ["client_id": clientId,
-                                         "client_secret": clientSecret,
-                                         "grant_type": grantType,
-                                         "email": userEmailId,
-                                         "password": password
-        ]
-        let headers = [
-            "Content-Type": "application/x-www-form-urlencoded"
-        ]
+        private let sessionManager: SessionManager = {
+            let configuration = URLSessionConfiguration.default
+            configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
+            
+            return SessionManager(configuration: configuration)
+        }()
         
-        let urlString = "https://staging.travelbook.com/api/v1/token"
-        Alamofire.request(urlString,
-                          method: .post,
-                          parameters: parameters,
-                          headers: headers).responseJSON { [weak self] jsonResponse in
-                            
-                            guard jsonResponse.data != nil, jsonResponse.result.error == nil
-                                else {
-                                    Logger.log(message: "Error", messageType: .error)
-                                    completion?(nil, jsonResponse.result.error)
-                                    return
-                            }
-                            
-                            if let jsonDict = jsonResponse.result.value as? [String: Any?],
-                                let accessToken = jsonDict["access_token"] as? String {
-                                self?.accessToken = accessToken
-                                completion?(accessToken, nil)
-                            }
+        private let lock = NSLock()
+        
+        private var clientID: String
+        private var clientSecret: String
+        private var userEmailId: String
+        private var password: String
+        private var baseURLString: String
+        
+        private var isRefreshing = false
+        private var requestsToRetry: [RequestRetryCompletion] = []
+        
+        private var grantType = "password"
+        
+        // MARK: - Initialization
+        
+        public init(clientID: String, clientSecret: String, userEmailId: String, password: String, baseURLString: String) {
+            self.clientID = clientID
+            self.clientSecret = clientSecret
+            self.userEmailId = userEmailId
+            self.password = password
+            self.baseURLString = baseURLString
+        }
+        
+        // MARK: - RequestAdapter
+        
+        func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
+            if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(baseURLString) {
+                var request = urlRequest
+                request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+                if let token = TravelBookTokenManager.shared.getAccessToken() {
+                    let string = "access_token=\(token)"
+                    request.httpBody = string.data(using: .utf8)
+                }
+                return request
+            }
+            
+            return urlRequest
+        }
+        
+        // MARK: - RequestRetrier
+        
+        func should(_ manager: SessionManager, retry request: Request, with error: Error, completion: @escaping RequestRetryCompletion) {
+            lock.lock() ; defer { lock.unlock() }
+            
+            if let response = request.task?.response as? HTTPURLResponse, response.statusCode == 401 {
+                requestsToRetry.append(completion)
+                
+                if !isRefreshing {
+                    refreshTokens { [weak self] succeeded, accessToken in
+                        guard let strongSelf = self else { return }
+                        
+                        strongSelf.lock.lock() ; defer { strongSelf.lock.unlock() }
+                        
+                        if let accessToken = accessToken {
+                            TravelBookTokenManager.shared.setAccessToken(token: accessToken)
+                        }
+                        
+                        strongSelf.requestsToRetry.forEach { $0(succeeded, 0.0) }
+                        strongSelf.requestsToRetry.removeAll()
+                    }
+                }
+            } else {
+                completion(false, 0.0)
+            }
+        }
+        
+        // MARK: - Private - Refresh Tokens
+        
+        private func refreshTokens(completion: @escaping RefreshCompletion) {
+            guard !isRefreshing else { return }
+            
+            isRefreshing = true
+            
+            let urlString = "\(baseURLString)/token"
+            
+            let parameters: [String: Any] = ["client_id": clientID,
+                                             "client_secret": clientSecret,
+                                             "grant_type": grantType,
+                                             "email": userEmailId,
+                                             "password": password
+            ]
+            
+            let headers = [
+                "Content-Type": "application/x-www-form-urlencoded"
+            ]
+            
+            sessionManager.request(urlString, method: .post, parameters: parameters, headers: headers)
+                .responseJSON { [weak self] response in
+                    guard let strongSelf = self else { return }
+                    
+                    if
+                        let json = response.result.value as? [String: Any],
+                        let accessToken = json["access_token"] as? String
+                    {
+                        completion(true, accessToken)
+                    } else {
+                        completion(false, nil)
+                    }
+                    
+                    strongSelf.isRefreshing = false
+            }
         }
     }
     
