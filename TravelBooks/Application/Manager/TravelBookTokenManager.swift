@@ -40,11 +40,6 @@ class TravelBookTokenManager {
         return accessToken
     }
     
-    // clear access token save in userdefaults
-    func clearAccessToken() {
-        accessToken = nil
-    }
-    
     private func setAccessToken(token: String) {
         accessToken = token
     }
