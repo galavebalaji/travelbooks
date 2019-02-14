@@ -17,15 +17,10 @@ class TravelBookTokenManager {
     // private var to hold, save in user defalts and fetch auth token
     private var accessToken: String? {
         set {
-            if let value = newValue {
-                UserDefaults.standard.set(value, forKey: "token")
-                UserDefaults.standard.synchronize()
-            } else {
-                UserDefaults.standard.removeObject(forKey: "token")
-            }
+            KeychainManager.saveAccessToken(token: NSString(string: newValue ?? ""))
         }
         get {
-            if let token = UserDefaults.standard.value(forKey: "token") as? String {
+            if let token = KeychainManager.getAccessToken() as String? {
                 return token
             }
             return nil
@@ -43,11 +38,6 @@ class TravelBookTokenManager {
     // get access token through shared instace
     func getAccessToken() -> String? {
         return accessToken
-    }
-    
-    // clear access token save in userdefaults
-    func clearAccessToken() {
-        accessToken = nil
     }
     
     private func setAccessToken(token: String) {
